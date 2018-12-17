@@ -1,0 +1,264 @@
+{
+  "Food_Define": [
+    {
+      "Vegetable_ID": "veg_1",
+      "Vegetable_ID_CRC": 3222541522,
+      "Name": "Avocado",
+      "Difficulty": "High",
+      "Time": 10,
+      "Points": 20
+    },
+    {
+      "Vegetable_ID": "veg_2",
+      "Vegetable_ID_CRC": 3946399505,
+      "Name": "Broccoli",
+      "Difficulty": "High",
+      "Time": 10,
+      "Points": 20
+    },
+    {
+      "Vegetable_ID": "veg_3",
+      "Vegetable_ID_CRC": 4062344784,
+      "Name": "Aubergine",
+      "Difficulty": "Medium ",
+      "Time": 7,
+      "Points": 10
+    },
+    {
+      "Vegetable_ID": "veg_4",
+      "Vegetable_ID_CRC": 3177439383,
+      "Name": "Corn",
+      "Difficulty": "Medium ",
+      "Time": 7,
+      "Points": 10
+    },
+    {
+      "Vegetable_ID": "veg_5",
+      "Vegetable_ID_CRC": 2759381462,
+      "Name": "Hamburger",
+      "Difficulty": "Low",
+      "Time": 2,
+      "Points": 5
+    },
+    {
+      "Vegetable_ID": "veg_6",
+      "Vegetable_ID_CRC": 2404745749,
+      "Name": "French fries",
+      "Difficulty": "Low",
+      "Time": 2,
+      "Points": 5
+    },
+    {
+      "Vegetable_ID": "veg_7",
+      "Vegetable_ID_CRC": 2521740116,
+      "Name": "Beer",
+      "Difficulty": "Low",
+      "Time": 2,
+      "Points": 5
+    }
+  ],
+  "Incident_Define": [
+    {
+      "Incident_ID": "Stop_Eating",
+      "Incident_ID_CRC": 2899015179,
+      "Name": "Stop Eating"
+    },
+    {
+      "Incident_ID": "Vomit",
+      "Incident_ID_CRC": 3881579665,
+      "Name": "Vomit"
+    },
+    {
+      "Incident_ID": "Fight",
+      "Incident_ID_CRC": 532347133,
+      "Name": "Fight"
+    },
+    {
+      "Incident_ID": "Playing",
+      "Incident_ID_CRC": 2288801252,
+      "Name": "Playing"
+    },
+    {
+      "Incident_ID": "Crying",
+      "Incident_ID_CRC": 2738184115,
+      "Name": "Crying"
+    }
+  ],
+  "Response_Define": [
+    {
+      "Response_ID": "Force",
+      "Response_ID_CRC": 236373571,
+      "Name": "Force",
+      "Time": 5,
+      "Points": 5
+    },
+    {
+      "Response_ID": "Shout",
+      "Response_ID_CRC": 1555546080,
+      "Name": "Shout",
+      "Time": 2,
+      "Points": 2
+    },
+    {
+      "Response_ID": "Cuddle",
+      "Response_ID_CRC": 2197215719,
+      "Name": "Cuddle",
+      "Time": 2,
+      "Points": 2
+    },
+    {
+      "Response_ID": "Clean",
+      "Response_ID_CRC": 832448903,
+      "Name": "Clean",
+      "Time": 5,
+      "Points": 5
+    }
+  ],
+  "Response_Calc": [
+    {
+      "Incident": "Stop_Eating",
+      "Incident_CRC": 2899015179,
+      "Response": "Force",
+      "Response_CRC": 236373571,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Stop_Eating",
+      "Incident_CRC": 2899015179,
+      "Response": "Shout",
+      "Response_CRC": 1555546080,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Stop_Eating",
+      "Incident_CRC": 2899015179,
+      "Response": "Cuddle",
+      "Response_CRC": 2197215719,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Stop_Eating",
+      "Incident_CRC": 2899015179,
+      "Response": "Clean",
+      "Response_CRC": 832448903,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Vomit",
+      "Incident_CRC": 3881579665,
+      "Response": "Cuddle",
+      "Response_CRC": 2197215719,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Vomit",
+      "Incident_CRC": 3881579665,
+      "Response": "Force",
+      "Response_CRC": 236373571,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Vomit",
+      "Incident_CRC": 3881579665,
+      "Response": "Clean",
+      "Response_CRC": 832448903,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Vomit",
+      "Incident_CRC": 3881579665,
+      "Response": "Shout",
+      "Response_CRC": 1555546080,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Fight",
+      "Incident_CRC": 532347133,
+      "Response": "Shout",
+      "Response_CRC": 1555546080,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Fight",
+      "Incident_CRC": 532347133,
+      "Response": "Clean",
+      "Response_CRC": 832448903,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Fight",
+      "Incident_CRC": 532347133,
+      "Response": "Cuddle",
+      "Response_CRC": 2197215719,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Fight",
+      "Incident_CRC": 532347133,
+      "Response": "Force",
+      "Response_CRC": 236373571,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Playing",
+      "Incident_CRC": 2288801252,
+      "Response": "Clean",
+      "Response_CRC": 832448903,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Playing",
+      "Incident_CRC": 2288801252,
+      "Response": "Shout",
+      "Response_CRC": 1555546080,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Playing",
+      "Incident_CRC": 2288801252,
+      "Response": "Force",
+      "Response_CRC": 236373571,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Playing",
+      "Incident_CRC": 2288801252,
+      "Response": "Cuddle",
+      "Response_CRC": 2197215719,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Crying",
+      "Incident_CRC": 2738184115,
+      "Response": "Clean",
+      "Response_CRC": 832448903,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Crying",
+      "Incident_CRC": 2738184115,
+      "Response": "Cuddle",
+      "Response_CRC": 2197215719,
+      "Positive_Result": "True"
+    },
+    {
+      "Incident": "Crying",
+      "Incident_CRC": 2738184115,
+      "Response": "Shout",
+      "Response_CRC": 1555546080,
+      "Positive_Result": "False"
+    },
+    {
+      "Incident": "Crying",
+      "Incident_CRC": 2738184115,
+      "Response": "Force",
+      "Response_CRC": 236373571,
+      "Positive_Result": "False"
+    }
+  ],
+  "CONVERSION_INFO": {
+    "release_version": "1.6.2",
+    "release_date": "2018-09-27",
+    "conversion_date": "2018-12-17T14:19:09.7088356Z"
+  }
+}
