@@ -4,7 +4,6 @@ namespace La.Cantina.Level
 {
     public class Spawner : MonoBehaviour
     {
-        [HideInInspector]
         public Child[] children = new Child[0];
 
         public Child SpawnChild()
