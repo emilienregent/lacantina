@@ -1,6 +1,7 @@
 ﻿using La.Cantina.Manager;
 using La.Cantina.Types;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,16 +11,23 @@ namespace La.Cantina.Controllers
     {
         private const int SLOT_NUMBER = 4;
 
-        [SerializeField] private MeshRenderer[] _slotRenderers = new MeshRenderer[SLOT_NUMBER];
+        [SerializeField] private FoodSlotController[] _foodSlots = new FoodSlotController[SLOT_NUMBER];
 
         private VegetableConfig[] _availableVegetables = new VegetableConfig[SLOT_NUMBER];
 
         private void Awake()
         {
-            GameManager.instance.Initialized += OnGameInitialized;
+            if (GameManager.instance.isReady == false)
+            {
+                GameManager.instance.Initialized += OnGameInitialized;
+            }
+            else
+            {
+                OnGameInitialized(GameManager.instance, null);
+            }
         }
 
-        private void OnGameInitialized(object sender, bool isReady)
+        private void OnGameInitialized(object sender, EventArgs eventArgs)
         {
             int count = 0;
 
@@ -41,18 +49,31 @@ namespace La.Cantina.Controllers
                 if (rand == count)
                 {
                     _availableVegetables[index] = pair.Value;
-                    _slotRenderers[index].material = Resources.Load<Material>("Materials/" + pair.Value.name.Replace(" ", ""));
 
-                    UnityEngine.Debug.Log("Refill cart slot " + index + " with " + pair.Value.name);
+                    _foodSlots[index].Refill(pair.Value);
                 }
 
                 count++;
             }
         }
 
-        public void TakeFood(int index)
+        public VegetableConfig TakeFood(int index)
         {
+            if (_foodSlots[index] == true)
+            {
+                _foodSlots[index].Take();
 
+                return _availableVegetables[index];
+            }
+
+            return null;
+        }
+
+        private IEnumerator TakeAfter()
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 3f));
+
+            TakeFood(UnityEngine.Random.Range(0, SLOT_NUMBER));
         }
     }
 }
