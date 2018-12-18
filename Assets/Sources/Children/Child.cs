@@ -11,6 +11,12 @@ public class Child : MonoBehaviour
     [SerializeField]
     private NavMeshAgent _navMeshAgent = null;
 
+    [HideInInspector]
+    public Seating allowedSeating = null;
+
+    [HideInInspector]
+    public int playerNumber = 0;
+
     private Seat currentSeat = null;
 
     private Slider  m_Slider;
@@ -21,15 +27,25 @@ public class Child : MonoBehaviour
     public IncidentConfig m_currentIncident = null;
     public VegetableConfig m_currentVegetable = null;
 
-    public void GoSit(Seating seats)
+    // Claim a seat in the assigned set and move to its position.
+    public void GoSit()
     {
-        currentSeat = seats.GetEmptySeat();
+        if (currentSeat == null) 
+            currentSeat = allowedSeating.GetEmptySeat();
 
         if (currentSeat != null)
         {
             currentSeat.isClaimed = true;
-            _navMeshAgent.SetDestination(currentSeat.seatTransform.position);
+            _navMeshAgent.SetDestination(currentSeat.transform.position);
         }
+    }
+
+    // Initialize for the set player
+    public void InitForPlayer(int player)
+    {
+        playerNumber = player;
+
+
     }
 
     public void Awake()
