@@ -6,21 +6,29 @@ namespace La.Cantina.Manager
     public class PlayerManager : MonoBehaviour
     {
         public int playerNumber = 1;
-        public Seating seating = null;
-        public Child[] children = new Child[0];
-        public Spawner spawner = null;
+        private Spawner _spawner = null;
 
         [SerializeField]
         private float _fullSpawnDelay = 15f;
 
         public void Start()
         {
-            spawner.children = children;
+            GameObject[] spawners = GameObject.FindGameObjectsWithTag(string.Format("SpawnerPlayer{0}", playerNumber));
+            GameObject[] seatings = GameObject.FindGameObjectsWithTag(string.Format("SeatingPlayer{0}", playerNumber));
 
-            for (int i = 0; i < children.Length; ++i)
+            if (seatings.Length == 0)
+                Debug.LogError(string.Format("No seating found for player {0}", playerNumber));
+
+            if (spawners.Length == 0)
+                Debug.LogError(string.Format("No spawner found for player {0}", playerNumber));
+
+            _spawner = spawners[0].GetComponent<Spawner>();
+            Seating seating = seatings[0].GetComponent<Seating>();
+
+            for (int i = 0; i < _spawner.children.Length; ++i)
             {
-                children[i].allowedSeating = seating;
-                children[i].InitForPlayer(playerNumber);
+                _spawner.children[i].allowedSeating = seating;
+                _spawner.children[i].InitForPlayer(playerNumber);
             }
 
             AddChild();
@@ -41,8 +49,10 @@ namespace La.Cantina.Manager
         {
             for (int i = 0; i < number; ++i)
             {
-                Child child = spawner.SpawnChild();
-                child.GoSit();
+                Child child = _spawner.SpawnChild();
+
+                if (child != null)
+                    child.GoSit();
             }
         }
     }
