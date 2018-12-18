@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using La.Cantina.Controllers;
+using La.Cantina.Types;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +9,17 @@ public class PlayerController : MonoBehaviour
     private float speed = 0.2f;
     bool childInRange = false;
 
+
+    private VegetableConfig _vegetableConfig = null;
+
+    private MeshRenderer _meshRenderer = null;
+
     public int joystickNumber;
 
-
+    void Awake()
+    {
+        _meshRenderer = GetComponent<MeshRenderer>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -19,14 +29,7 @@ public class PlayerController : MonoBehaviour
 
         Move(horizontal, vertical);
 
-        if (childInRange == true)
-        {
-            DisplayAction();
-            Action1();
-            Action2();
-            Action3();
-            Action4();
-        }
+        
 
     }
 
@@ -49,19 +52,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    void DisplayAction()
-    {
-
-    }
     // Action
-    void Action1()
+    bool Action1()
     {
         bool isPressed = Input.GetButton("Action1_P" + joystickNumber.ToString());
 
         if(isPressed == true)
         {
-            GetComponent<Renderer>().material.color = Color.green;
+            //_renderer.material.color = Color.green;
+            return true;
+        } else
+        {
+            return false;
         }
     }
 
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
         if (isPressed == true)
         {
-            GetComponent<Renderer>().material.color = Color.red;
+            //_renderer.material.color = Color.red;
         }
     }
 
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
         if (isPressed == true)
         {
-            GetComponent<Renderer>().material.color = Color.yellow;
+            //_renderer.material.color = Color.yellow;
         }
     }
 
@@ -94,21 +96,11 @@ public class PlayerController : MonoBehaviour
 
         if (isPressed == true)
         {
-            GetComponent<Renderer>().material.color = Color.blue;
+            //_renderer.material.color = Color.blue;
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
 
-        // Action possible sur un enfant
-        if (other.tag == "Children")
-        {
-            other.GetComponent<Renderer>().material.color = Color.cyan;
-            childInRange = true;
-        }
-        
-    }
 
     void OnTriggerExit(Collider other)
     {
@@ -118,5 +110,35 @@ public class PlayerController : MonoBehaviour
             childInRange = false;
         }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Children")
+        {
+            other.GetComponent<Renderer>().material.color = Color.cyan;
+            Action1();
+            Action2();
+            Action3();
+            Action4();
+        } else if (other.tag == "FoodSlot")
+        {
+            FoodSlotController foodSlot = other.GetComponent<FoodSlotController>();
+            ActionFoodSlot(foodSlot);
+        }
+
+        
+    }
+
+    void ActionFoodSlot(FoodSlotController foodSlot)
+    {
+        if(Action1() == true)
+        {
+            _vegetableConfig = foodSlot.Take();
+            if (_vegetableConfig != null)
+            {
+                _meshRenderer.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
+            }
+        }
     }
 }
