@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
         if (childInRange == true)
         {
+            DisplayAction();
             Action1();
             Action2();
             Action3();
@@ -48,6 +49,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    void DisplayAction()
+    {
+
+    }
     // Action
     void Action1()
     {
@@ -55,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if(isPressed == true)
         {
-            Debug.Log("Action1");
+            GetComponent<Renderer>().material.color = Color.green;
         }
     }
 
@@ -66,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
         if (isPressed == true)
         {
-            Debug.Log("Action2");
+            GetComponent<Renderer>().material.color = Color.red;
         }
     }
 
@@ -77,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
         if (isPressed == true)
         {
-            Debug.Log("Action3");
+            GetComponent<Renderer>().material.color = Color.yellow;
         }
     }
 
@@ -88,21 +94,29 @@ public class PlayerController : MonoBehaviour
 
         if (isPressed == true)
         {
-            Debug.Log("Action4");
+            GetComponent<Renderer>().material.color = Color.blue;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
 
-        childInRange = true;
+        // Action possible sur un enfant
+        if (other.tag == "Children")
+        {
+            other.GetComponent<Renderer>().material.color = Color.cyan;
+            childInRange = true;
+        }
         
     }
 
     void OnTriggerExit(Collider other)
     {
-
-        childInRange = false;
+        if (other.tag == "Children")
+        {
+            other.GetComponent<Renderer>().material.color = Color.white;
+            childInRange = false;
+        }
 
     }
 }
