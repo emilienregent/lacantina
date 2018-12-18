@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Children
   - FoodSlot
+  - SpawnerPlayer1
+  - SpawnerPlayer2
+  - SpawnerPlayer3
+  - SpawnerPlayer4
+  - SeatingPlayer1
+  - SeatingPlayer2
+  - SeatingPlayer3
+  - SeatingPlayer4
   layers:
   - Default
   - TransparentFX
