@@ -21,18 +21,20 @@ namespace La.Cantina.Manager
             }
         }
 
+        public event EventHandler Initialized;
         private bool _isReady = false;
-        public  event EventHandler<bool> Initialized;
+        public bool isReady { get { return _isReady; } }
 
         public Dictionary<uint, VegetableConfig>    vegetableIdToConfig = null;
         public Dictionary<uint, IncidentConfig>     incidentIdToConfig  = null;
         public Dictionary<uint, ResponseConfig>     responseIdToConfig  = null;
 
+
         public void SetReady()
         {
             _isReady = true;
 
-            Initialized(this, _isReady);
+            Initialized?.Invoke(this, null);
         }
     }
 }
