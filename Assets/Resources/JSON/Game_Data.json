@@ -4,57 +4,233 @@
       "Vegetable_ID": "veg_1",
       "Vegetable_ID_CRC": 3222541522,
       "Name": "Avocado",
-      "Difficulty": "High",
-      "Time": 10,
+      "type": "Vegetable",
+      "Difficulty": "high",
+      "time_to_incident": 3,
+      "time_to_eat": 10,
       "Points": 20
     },
     {
       "Vegetable_ID": "veg_2",
       "Vegetable_ID_CRC": 3946399505,
       "Name": "Broccoli",
-      "Difficulty": "High",
-      "Time": 10,
+      "type": "Vegetable",
+      "Difficulty": "high",
+      "time_to_incident": 3,
+      "time_to_eat": 10,
       "Points": 20
     },
     {
       "Vegetable_ID": "veg_3",
       "Vegetable_ID_CRC": 4062344784,
       "Name": "Aubergine",
-      "Difficulty": "Medium ",
-      "Time": 7,
+      "type": "Vegetable",
+      "Difficulty": "medium",
+      "time_to_incident": 5,
+      "time_to_eat": 10,
       "Points": 10
     },
     {
       "Vegetable_ID": "veg_4",
       "Vegetable_ID_CRC": 3177439383,
       "Name": "Corn",
-      "Difficulty": "Medium ",
-      "Time": 7,
+      "type": "Vegetable",
+      "Difficulty": "medium",
+      "time_to_incident": 5,
+      "time_to_eat": 10,
       "Points": 10
     },
     {
       "Vegetable_ID": "veg_5",
       "Vegetable_ID_CRC": 2759381462,
       "Name": "Hamburger",
-      "Difficulty": "Low",
-      "Time": 2,
+      "type": "Junk",
+      "Difficulty": "low",
+      "time_to_incident": 8,
+      "time_to_eat": 10,
       "Points": 5
     },
     {
       "Vegetable_ID": "veg_6",
       "Vegetable_ID_CRC": 2404745749,
-      "Name": "French fries",
-      "Difficulty": "Low",
-      "Time": 2,
+      "Name": "French Fries",
+      "type": "Junk",
+      "Difficulty": "low",
+      "time_to_incident": 8,
+      "time_to_eat": 10,
       "Points": 5
     },
     {
       "Vegetable_ID": "veg_7",
       "Vegetable_ID_CRC": 2521740116,
-      "Name": "Beer",
-      "Difficulty": "Low",
-      "Time": 2,
+      "Name": "Pancakes",
+      "type": "Junk",
+      "Difficulty": "low",
+      "time_to_incident": 8,
+      "time_to_eat": 10,
       "Points": 5
+    },
+    {
+      "Vegetable_ID": "veg_8",
+      "Vegetable_ID_CRC": 299282331,
+      "Name": "Lemon",
+      "type": "Fruit",
+      "Difficulty": "high",
+      "time_to_incident": 3,
+      "time_to_eat": 10,
+      "Points": 20
+    },
+    {
+      "Vegetable_ID": "veg_9",
+      "Vegetable_ID_CRC": 147693274,
+      "Name": "Kiwi",
+      "type": "Fruit",
+      "Difficulty": "high",
+      "time_to_incident": 3,
+      "time_to_eat": 10,
+      "Points": 20
+    },
+    {
+      "Vegetable_ID": "veg_12",
+      "Vegetable_ID_CRC": 92140922,
+      "Name": "Apple",
+      "type": "Fruit",
+      "Difficulty": "medium",
+      "time_to_incident": 5,
+      "time_to_eat": 10,
+      "Points": 5
+    },
+    {
+      "Vegetable_ID": "veg_13",
+      "Vegetable_ID_CRC": 476496955,
+      "Name": "Banana",
+      "type": "Fruit",
+      "Difficulty": "medium",
+      "time_to_incident": 5,
+      "time_to_eat": 10,
+      "Points": 5
+    }
+  ],
+  "Objective_define": [
+    {
+      "Vegetable_ID": "obj_01",
+      "Vegetable_ID_CRC": 2122586137,
+      "Name": "Fruit to everyone",
+      "Reward": 10
+    },
+    {
+      "Vegetable_ID": "obj_02",
+      "Vegetable_ID_CRC": 1437158362,
+      "Name": "Vegetables for everyone",
+      "Reward": 10
+    },
+    {
+      "Vegetable_ID": "obj_03",
+      "Vegetable_ID_CRC": 1286765211,
+      "Name": "No child lost",
+      "Reward": 10
+    },
+    {
+      "Vegetable_ID": "obj_04",
+      "Vegetable_ID_CRC": 66317404,
+      "Name": "damage control (not too many incidents)",
+      "Reward": 10
+    },
+    {
+      "Vegetable_ID": "obj_05",
+      "Vegetable_ID_CRC": 451468573,
+      "Name": "Fill your tummies (eat as much as possible)",
+      "Reward": 10
+    },
+    {
+      "Vegetable_ID": "obj_06",
+      "Vegetable_ID_CRC": 835030750,
+      "Name": "No junk",
+      "Reward": 10
+    }
+  ],
+  "Food_incident_time_define": [
+    {
+      "Incident": "Food_incident_time_define",
+      "Response": "",
+      "Positive_Result": ""
+    },
+    {
+      "Incident": "Defines the chance the incident based on the food difficulty",
+      "Response": "",
+      "Positive_Result": ""
+    },
+    {
+      "Incident": "[Start]",
+      "Response": "",
+      "Positive_Result": ""
+    },
+    {
+      "Incident": "Difficulty",
+      "Response": "time_to_accident",
+      "Positive_Result": ""
+    },
+    {
+      "Incident": "key",
+      "Response": "",
+      "Positive_Result": ""
+    },
+    {
+      "Incident": "low",
+      "Response": 8,
+      "Positive_Result": ""
+    },
+    {
+      "Incident": "medium",
+      "Response": 5,
+      "Positive_Result": ""
+    },
+    {
+      "Incident": "high",
+      "Response": 3,
+      "Positive_Result": ""
+    }
+  ],
+  "Level_define": [
+    {
+      "Level_id": "level_1",
+      "Level_id_CRC": 2386292924,
+      "battle": 1,
+      "battle_name": "missing_text",
+      "time_sec": 120,
+      "children_per_player": 3,
+      "tables_per_player": 1,
+      "max_amount_players": 4
+    },
+    {
+      "Level_id": "level_2",
+      "Level_id_CRC": 2769724287,
+      "battle": 2,
+      "battle_name": "missing_text",
+      "time_sec": 120,
+      "children_per_player": 4,
+      "tables_per_player": 1,
+      "max_amount_players": 4
+    },
+    {
+      "Level_id": "level_3",
+      "Level_id_CRC": 3155006014,
+      "battle": 3,
+      "battle_name": "missing_text",
+      "time_sec": 120,
+      "children_per_player": 5,
+      "tables_per_player": 1,
+      "max_amount_players": 4
+    },
+    {
+      "Level_id": "level_4",
+      "Level_id_CRC": 4081845497,
+      "battle": 4,
+      "battle_name": "missing_text",
+      "time_sec": 120,
+      "children_per_player": 6,
+      "tables_per_player": 1,
+      "max_amount_players": 4
     }
   ],
   "Incident_Define": [
@@ -116,29 +292,29 @@
   ],
   "Response_Calc": [
     {
-      "Incident": "Stop_Eating",
-      "Incident_CRC": 2899015179,
+      "Incident": "Grumpy",
+      "Incident_CRC": 143273190,
       "Response": "Force",
       "Response_CRC": 236373571,
       "Positive_Result": "True"
     },
     {
-      "Incident": "Stop_Eating",
-      "Incident_CRC": 2899015179,
+      "Incident": "Grumpy",
+      "Incident_CRC": 143273190,
       "Response": "Shout",
       "Response_CRC": 1555546080,
       "Positive_Result": "True"
     },
     {
-      "Incident": "Stop_Eating",
-      "Incident_CRC": 2899015179,
+      "Incident": "Grumpy",
+      "Incident_CRC": 143273190,
       "Response": "Cuddle",
       "Response_CRC": 2197215719,
       "Positive_Result": "False"
     },
     {
-      "Incident": "Stop_Eating",
-      "Incident_CRC": 2899015179,
+      "Incident": "Grumpy",
+      "Incident_CRC": 143273190,
       "Response": "Clean",
       "Response_CRC": 832448903,
       "Positive_Result": "False"
@@ -259,6 +435,6 @@
   "CONVERSION_INFO": {
     "release_version": "1.6.2",
     "release_date": "2018-09-27",
-    "conversion_date": "2018-12-17T14:19:09.7088356Z"
+    "conversion_date": "2018-12-18T09:27:47.6564385Z"
   }
 }
