@@ -12,7 +12,7 @@ namespace La.Cantina.Parsers
         private const string NAME               = "Name";
         private const string DIFFICULTY         = "Difficulty";
         private const string TIME_TO_INCIDENT   = "time_to_incident";
-        private const string TIME_TO_EAT        = "time_to_incident";
+        private const string TIME_TO_EAT        = "time_to_eat";
         private const string POINTS             = "Points";
 
         public static Dictionary<uint, VegetableConfig> ParseVegetables(JSON json)

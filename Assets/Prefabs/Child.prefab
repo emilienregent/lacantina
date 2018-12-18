@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9194186780923276426
 Transform:
   m_ObjectHideFlags: 0
@@ -105,11 +105,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 9194186780923276430}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 4
+  m_Radius: 0.4
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 60
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -117,7 +117,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &8375776603579831355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +145,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navMeshAgent: {fileID: 2602280271006570250}
+  allowedSeating: {fileID: 0}
+  playerNumber: 0
+  m_elapsedTime: 0
+  m_triggerDelay: 2
+  m_isEating: 0
+  m_timer: 0
 --- !u!1001 &1493947205094645385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265,12 +271,12 @@ PrefabInstance:
     - target: {fileID: 3145982319785293006, guid: cf1e56568c673e1469743e359271a0ca,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3145982319785293006, guid: cf1e56568c673e1469743e359271a0ca,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf1e56568c673e1469743e359271a0ca, type: 3}

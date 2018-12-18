@@ -4,37 +4,81 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using La.Cantina.Types;
 using La.Cantina.Manager;
+using System;
 
 public class Child : MonoBehaviour
 {
     [SerializeField]
     private NavMeshAgent _navMeshAgent = null;
 
+    [HideInInspector]
+    public Seating allowedSeating = null;
+
+    [HideInInspector]
+    public int playerNumber = 0;
+
     private Seat currentSeat = null;
 
-    public float m_elapsedTime = 0f;
-    public int m_triggerDelay = 2;
-    private Slider m_Slider;
-    public bool m_isEating = false;
-    public int m_timer = 0;
+    private Slider  m_Slider;
+    public  int     m_timer         = 0;
+    public  float   m_elapsedTime   = 0f;
+    public  bool    m_isEating      = false;
 
     public IncidentConfig m_currentIncident = null;
     public VegetableConfig m_currentVegetable = null;
 
-    public void GoSit(Seating seats)
+    // Claim a seat in the assigned set and move to its position.
+    public void GoSit()
     {
-        currentSeat = seats.GetEmptySeat();
+        if (currentSeat == null) 
+            currentSeat = allowedSeating.GetEmptySeat();
 
         if (currentSeat != null)
         {
             currentSeat.isClaimed = true;
-            _navMeshAgent.SetDestination(currentSeat.seatTransform.position);
+            _navMeshAgent.SetDestination(currentSeat.transform.position);
         }
+    }
+
+    // Initialize for the set player
+    public void InitForPlayer(int player)
+    {
+        playerNumber = player;
+
+
     }
 
     public void Awake()
     {
         m_Slider = GetComponentInChildren<Slider>();
+
+        if (GameManager.instance.isReady == false)
+        {
+            GameManager.instance.Initialized += OnGameInitialized;
+        }
+        else
+        {
+            OnGameInitialized(GameManager.instance, null);
+        }
+    }
+
+    private void OnGameInitialized(object sender, EventArgs eventArgs)
+    {
+#if DEBUG_CHILD
+        int rand    = UnityEngine.Random.Range(0, GameManager.instance.incidentIdToConfig.Keys.Count);
+        int count   = 0;
+
+        foreach (KeyValuePair<uint, VegetableConfig> pair in GameManager.instance.vegetableIdToConfig)
+        {
+            if (rand == count)
+            {
+                GiveFood(pair.Value);
+                break;
+            }
+
+            count++;
+        }
+#endif
     }
 
     public void Update()
@@ -49,24 +93,21 @@ public class Child : MonoBehaviour
                 m_elapsedTime = m_elapsedTime % 1f;
                 m_timer++;
 
+                // Progression based on the vegetable configuration
+                m_Slider.value = (100 / m_currentVegetable.timeToEat) * m_timer;
+
+                // If the gauge is filled, the kid has finished to eat
+                if (m_timer >= m_currentVegetable.timeToEat)
+                {
+                    m_isEating = false;
+                    m_currentVegetable = null;
+                }
                 // If the incident trigger delay is reached
-                if(m_timer%m_triggerDelay == 0)
+                else if (m_timer != 0 && (m_timer % m_currentVegetable.timeToIncident == 0))
                 {
                     // We start an incident
                     StartIncident();
                     SolveIncident();
-
-                // Else we process the progression of the "eat" action
-                } else
-                {
-                    // TODO : Progression of the gauge to defined (currently 10% / s)
-                    m_Slider.value += 10;
-                    // If the gauge is filled, the kid has finished to eat
-                    if(m_Slider.value >= m_Slider.maxValue)
-                    {
-                        m_isEating = false;
-                        m_currentVegetable = null;
-                    }
                 }
             }
         }
@@ -112,6 +153,7 @@ public class Child : MonoBehaviour
                 m_isEating = false;
 
                 Debug.Log("Start new incident : " + m_currentIncident.name);
+                break;
             }
 
             count++;
