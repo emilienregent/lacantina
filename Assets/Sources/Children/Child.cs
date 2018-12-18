@@ -51,6 +51,7 @@ public class Child : MonoBehaviour
     public void Awake()
     {
         m_Slider = GetComponentInChildren<Slider>();
+        m_Slider.value = 0f;
 
         if (GameManager.instance.isReady == false)
         {
