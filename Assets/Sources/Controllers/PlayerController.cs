@@ -150,6 +150,10 @@ public class PlayerController : MonoBehaviour
     {
         if(Action1() == true)
         {
+            if (_vegetableConfig != null)
+            {
+                _childInRange.GiveFood(_vegetableConfig);
+            }
 
         } else if(Action2() == true)
         {
