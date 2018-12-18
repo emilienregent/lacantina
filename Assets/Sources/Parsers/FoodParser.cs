@@ -11,7 +11,8 @@ namespace La.Cantina.Parsers
         private const string VEGETABLE_ID_CRC   = "Vegetable_ID_CRC";
         private const string NAME               = "Name";
         private const string DIFFICULTY         = "Difficulty";
-        private const string TIME               = "Time";
+        private const string TIME_TO_INCIDENT   = "time_to_incident";
+        private const string TIME_TO_EAT        = "time_to_incident";
         private const string POINTS             = "Points";
 
         public static Dictionary<uint, VegetableConfig> ParseVegetables(JSON json)
@@ -36,7 +37,8 @@ namespace La.Cantina.Parsers
                 json.ToString(VEGETABLE_ID),
                 json.ToString(NAME),
                 json.ToString(DIFFICULTY),
-                json.ToFloat(TIME),
+                json.ToFloat(TIME_TO_INCIDENT),
+                json.ToFloat(TIME_TO_EAT),
                 json.ToInt(POINTS)
             );
 

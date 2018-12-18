@@ -1,7 +1,6 @@
 ﻿using Json.Parser;
+using La.Cantina.Manager;
 using La.Cantina.Parsers;
-using La.Cantina.Types;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace La.Cantina.Controller
@@ -17,9 +16,11 @@ namespace La.Cantina.Controller
             TextAsset   data = Resources.Load<TextAsset>(GAME_DATA_PATH);
             JSON        json = JSON.CreateFromText(data.text);
 
-            Dictionary<uint, VegetableConfig> vegetableIdToConfig = FoodParser.ParseVegetables(json);
-            Dictionary<uint, IncidentConfig> incidentIdToConfig = ChildrenParser.ParseIncidents(json);
-            Dictionary<uint, ResponseConfig> responseIdToConfig = AdultParser.ParseResponses(json);
+            GameManager.instance.vegetableIdToConfig = FoodParser.ParseVegetables(json);
+            GameManager.instance.incidentIdToConfig  = ChildrenParser.ParseIncidents(json);
+            GameManager.instance.responseIdToConfig  = AdultParser.ParseResponses(json);
+
+            GameManager.instance.SetReady();
         }
     }
 }
