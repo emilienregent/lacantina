@@ -4480,7 +4480,7 @@ PrefabInstance:
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.50900006
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
@@ -4532,6 +4532,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.1786
       objectReference: {fileID: 0}
+    - target: {fileID: 7940807670358955467, guid: c130505ad81547a4db26967842cc2e9c,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4268172155725141483, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
       propertyPath: _refillImage
@@ -4577,7 +4582,7 @@ PrefabInstance:
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.509
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
@@ -4629,6 +4634,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.1786
       objectReference: {fileID: 0}
+    - target: {fileID: 7940807670358955467, guid: c130505ad81547a4db26967842cc2e9c,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7940807670358955467, guid: c130505ad81547a4db26967842cc2e9c,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4268172155725141483, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
       propertyPath: _refillImage
@@ -4674,7 +4689,7 @@ PrefabInstance:
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.50900006
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
@@ -4726,6 +4741,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.1786
       objectReference: {fileID: 0}
+    - target: {fileID: 7940807670358955467, guid: c130505ad81547a4db26967842cc2e9c,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4268172155725141483, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
       propertyPath: _refillImage
@@ -4771,7 +4791,7 @@ PrefabInstance:
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.50900006
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2722618357944847641, guid: c130505ad81547a4db26967842cc2e9c,
         type: 3}
