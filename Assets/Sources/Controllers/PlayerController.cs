@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float speed = 0.2f;
-    bool childInRange = false;
+    Child _childInRange = null;
 
 
     private VegetableConfig _vegetableConfig = null;
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Action
+    // Bouton d'Action 1 (A)
     bool Action1()
     {
         bool isPressed = Input.GetButton("Action1_P" + joystickNumber.ToString());
@@ -67,38 +67,52 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Action
-    void Action2()
+    // Bouton d'Action 2 (B)
+    bool Action2()
     {
         bool isPressed = Input.GetButton("Action2_P" + joystickNumber.ToString());
 
         if (isPressed == true)
         {
             //_renderer.material.color = Color.red;
+            return true;
+        } else
+        {
+            return false;
         }
     }
 
-    // Action
-    void Action3()
+    // Bouton d'Action 3 (Y)
+    bool Action3()
     {
         bool isPressed = Input.GetButton("Action3_P" + joystickNumber.ToString());
 
         if (isPressed == true)
         {
             //_renderer.material.color = Color.yellow;
+            return true;
+        } else
+        {
+            return false;
         }
     }
 
-    // Action
-    void Action4()
+    // Bouton d'Action 4 (X)
+    bool Action4()
     {
         bool isPressed = Input.GetButton("Action4_P" + joystickNumber.ToString());
 
         if (isPressed == true)
         {
             //_renderer.material.color = Color.blue;
+            return true;
+        } else
+        {
+            return false;
         }
     }
+
+
 
 
 
@@ -107,7 +121,7 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Children")
         {
             other.GetComponent<Renderer>().material.color = Color.white;
-            childInRange = false;
+            _childInRange = null;
         }
 
     }
@@ -117,10 +131,11 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Children")
         {
             other.GetComponent<Renderer>().material.color = Color.cyan;
-            Action1();
-            Action2();
-            Action3();
-            Action4();
+
+            _childInRange = other.GetComponent<Child>();
+
+            ActionChild();
+
         } else if (other.tag == "FoodSlot")
         {
             FoodSlotController foodSlot = other.GetComponent<FoodSlotController>();
@@ -130,6 +145,25 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    // Actions sur un enfant
+    void ActionChild()
+    {
+        if(Action1() == true)
+        {
+
+        } else if(Action2() == true)
+        {
+
+        } else if(Action3() == true)
+        {
+
+        } else if (Action4() == true)
+        {
+
+        }
+    }
+
+    // Actions sur le chariot
     void ActionFoodSlot(FoodSlotController foodSlot)
     {
         if(Action1() == true)
