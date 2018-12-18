@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4268172155725141483}
   m_Layer: 0
   m_Name: FoodSlot
-  m_TagString: Untagged
+  m_TagString: FoodSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
