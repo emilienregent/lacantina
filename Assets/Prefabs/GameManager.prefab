@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spawner: {fileID: 0}
+  _fullSpawnDelay: 15
 --- !u!114 &6322243566879682135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +92,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spawner: {fileID: 0}
+  _fullSpawnDelay: 15
 --- !u!114 &6377389212705111915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +115,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spawner: {fileID: 0}
+  _fullSpawnDelay: 15
 --- !u!114 &452711257087177461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +138,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spawner: {fileID: 0}
+  _fullSpawnDelay: 15

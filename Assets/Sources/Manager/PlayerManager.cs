@@ -10,6 +10,9 @@ namespace La.Cantina.Manager
         public Child[] children = new Child[0];
         public Spawner spawner = null;
 
+        [SerializeField]
+        private float _fullSpawnDelay = 15f;
+
         public void Start()
         {
             spawner.children = children;
@@ -23,10 +26,24 @@ namespace La.Cantina.Manager
             AddChild();
         }
 
-        public void AddChild()
+        public void Update()
         {
-            Child child = spawner.SpawnChild();
-            child.GoSit();
+            if (_fullSpawnDelay > 0f)
+            {
+                _fullSpawnDelay -= Time.deltaTime;
+
+                if (_fullSpawnDelay < 0f)
+                    AddChild(5);
+            }
+        }
+
+        public void AddChild(int number = 1)
+        {
+            for (int i = 0; i < number; ++i)
+            {
+                Child child = spawner.SpawnChild();
+                child.GoSit();
+            }
         }
     }
 
