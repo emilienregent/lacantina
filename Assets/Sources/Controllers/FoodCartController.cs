@@ -33,47 +33,19 @@ namespace La.Cantina.Controllers
 
             while(count < _availableVegetables.Length)
             {
-                RefillFood(count);
+                _foodSlots[count].Refill();
 
                 count++;
             }
-        }
-
-        private void RefillFood(int index)
-        {
-            int rand    = UnityEngine.Random.Range(0, GameManager.instance.vegetableIdToConfig.Keys.Count);
-            int count   = 0;
-
-            foreach (KeyValuePair<uint, VegetableConfig> pair in GameManager.instance.vegetableIdToConfig)
-            {
-                if (rand == count)
-                {
-                    _availableVegetables[index] = pair.Value;
-
-                    _foodSlots[index].Refill(pair.Value);
-                }
-
-                count++;
-            }
-        }
-
-        public VegetableConfig TakeFood(int index)
-        {
-            if (_foodSlots[index] == true)
-            {
-                _foodSlots[index].Take();
-
-                return _availableVegetables[index];
-            }
-
-            return null;
         }
 
         private IEnumerator TakeAfter()
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 3f));
 
-            TakeFood(UnityEngine.Random.Range(0, SLOT_NUMBER));
+            int index = UnityEngine.Random.Range(0, SLOT_NUMBER);
+
+            _foodSlots[index].Take();
         }
     }
 }
