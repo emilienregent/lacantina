@@ -51,7 +51,6 @@ GameObject:
   - component: {fileID: 6753635710602059882}
   - component: {fileID: 6753635710602059881}
   - component: {fileID: 6753635710602059880}
-  - component: {fileID: 6753635710602059879}
   m_Layer: 0
   m_Name: Cylinder(Clone)(Clone)
   m_TagString: Untagged
@@ -1745,20 +1744,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635710602059879
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635710602059878}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635710869813407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1756,6 @@ GameObject:
   - component: {fileID: 6753635710869813379}
   - component: {fileID: 6753635710869813378}
   - component: {fileID: 6753635710869813377}
-  - component: {fileID: 6753635710869813376}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -2533,20 +2517,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635710869813376
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635710869813407}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635711107009444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,7 +2529,6 @@ GameObject:
   - component: {fileID: 6753635711107009448}
   - component: {fileID: 6753635711107009447}
   - component: {fileID: 6753635711107009446}
-  - component: {fileID: 6753635711107009445}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -4452,20 +4421,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635711107009445
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635711107009444}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635711148608804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,7 +4433,6 @@ GameObject:
   - component: {fileID: 6753635711148608808}
   - component: {fileID: 6753635711148608807}
   - component: {fileID: 6753635711148608806}
-  - component: {fileID: 6753635711148608805}
   m_Layer: 0
   m_Name: Cylinder(Clone)
   m_TagString: Untagged
@@ -6172,20 +6126,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635711148608805
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635711148608804}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635711444700730
 GameObject:
   m_ObjectHideFlags: 0
@@ -6198,7 +6138,6 @@ GameObject:
   - component: {fileID: 6753635711444700734}
   - component: {fileID: 6753635711444700733}
   - component: {fileID: 6753635711444700732}
-  - component: {fileID: 6753635711444700731}
   m_Layer: 0
   m_Name: Cylinder(Clone)(Clone)
   m_TagString: Untagged
@@ -8091,20 +8030,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635711444700731
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635711444700730}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635711459877507
 GameObject:
   m_ObjectHideFlags: 0
@@ -8117,7 +8042,6 @@ GameObject:
   - component: {fileID: 6753635711459877511}
   - component: {fileID: 6753635711459877510}
   - component: {fileID: 6753635711459877509}
-  - component: {fileID: 6753635711459877508}
   m_Layer: 0
   m_Name: Cylinder(Clone)
   m_TagString: Untagged
@@ -10010,20 +9934,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635711459877508
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635711459877507}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635711552334662
 GameObject:
   m_ObjectHideFlags: 0
@@ -10036,7 +9946,6 @@ GameObject:
   - component: {fileID: 6753635711552334666}
   - component: {fileID: 6753635711552334665}
   - component: {fileID: 6753635711552334664}
-  - component: {fileID: 6753635711552334663}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -11730,20 +11639,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635711552334663
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635711552334662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635712041369072
 GameObject:
   m_ObjectHideFlags: 0
@@ -11756,7 +11651,6 @@ GameObject:
   - component: {fileID: 6753635712041369076}
   - component: {fileID: 6753635712041369075}
   - component: {fileID: 6753635712041369074}
-  - component: {fileID: 6753635712041369073}
   m_Layer: 0
   m_Name: Cylinder(Clone)
   m_TagString: Untagged
@@ -13649,20 +13543,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635712041369073
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635712041369072}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &6753635712292995097
 GameObject:
   m_ObjectHideFlags: 0
@@ -13675,7 +13555,6 @@ GameObject:
   - component: {fileID: 6753635712292995101}
   - component: {fileID: 6753635712292995100}
   - component: {fileID: 6753635712292995099}
-  - component: {fileID: 6753635712292995098}
   m_Layer: 0
   m_Name: Cylinder(Clone)
   m_TagString: Untagged
@@ -15369,17 +15248,3 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!64 &6753635712292995098
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753635712292995097}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
