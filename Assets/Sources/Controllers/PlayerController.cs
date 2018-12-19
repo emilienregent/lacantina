@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical_P" + joystickNumber.ToString());
 
         Move(horizontal, vertical);
+
+        if (_childInRange == null && IsPressedAction(2) == true && _vegetableCarried != null)
+        {
+            ThrowFood();
+        }
     }
 
     // Déplacements
@@ -76,13 +81,13 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Children")
         {
             other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Empty");
+
             _childInRange = null;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-
         if (other.tag == "Children" && other.transform.parent.gameObject.tag == "SpawnerPlayer" + joystickNumber.ToString())
         {
             other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Cyan");
@@ -91,7 +96,8 @@ public class PlayerController : MonoBehaviour
 
             ActionChild();
 
-        } else if (other.tag == "FoodSlot")
+        }
+        else if (other.tag == "FoodSlot")
         {
             FoodSlotController foodSlot = other.GetComponent<FoodSlotController>();
             ActionFoodSlot(foodSlot);
@@ -114,7 +120,14 @@ public class PlayerController : MonoBehaviour
         }
         else if(IsPressedAction(2) == true)
         {
-            ManageIncident(RESPONSE_SHOUT);
+            if (_vegetableCarried != null)
+            {
+                ThrowFood();
+            }
+            else
+            {
+                ManageIncident(RESPONSE_SHOUT);
+            }
         }
         else if(IsPressedAction(3) == true)
         {
@@ -166,6 +179,16 @@ public class PlayerController : MonoBehaviour
 
                 _playerCanvas.DisableFeedback();
             }
+        }
+    }
+
+    private void ThrowFood()
+    {
+        if (_vegetableCarried != null)
+        {
+            _vegetableCarried = null;
+
+            _playerCanvas.DisableFeedback();
         }
     }
 
