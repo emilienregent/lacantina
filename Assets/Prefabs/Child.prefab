@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c8068926f3bfe7a498e69c10c8aa30db, type: 2}
+  - {fileID: 2100000, guid: 0e25b8826de7c9044ab373fbf69c635f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,6 +147,8 @@ MonoBehaviour:
   _navMeshAgent: {fileID: 2602280271006570250}
   allowedSeating: {fileID: 0}
   playerNumber: 0
+  m_Slider_Background: {fileID: 4545072455999156481}
+  m_Slider_Foreground: {fileID: 4545072455033334342}
   m_timer: 0
   m_elapsedTime: 0
   m_isEating: 0
@@ -285,3 +287,27 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1493947205094645385}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4545072455999156481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3145982318886743944, guid: cf1e56568c673e1469743e359271a0ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1493947205094645385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4545072455033334342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3145982319785293007, guid: cf1e56568c673e1469743e359271a0ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1493947205094645385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

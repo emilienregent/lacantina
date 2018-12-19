@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Children")
         {
-            other.GetComponent<Renderer>().material.color = Color.white;
+            other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Empty");
             _childInRange = null;
         }
 
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Children")
         {
-            other.GetComponent<Renderer>().material.color = Color.cyan;
+            other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Cyan");
 
             _childInRange = other.GetComponent<Child>();
 

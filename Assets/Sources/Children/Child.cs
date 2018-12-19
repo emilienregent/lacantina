@@ -20,6 +20,9 @@ public class Child : MonoBehaviour
     private Seat currentSeat = null;
 
     private Slider  m_Slider;
+    [SerializeField] private Image m_Slider_Background = null;
+    [SerializeField] private Image m_Slider_Foreground = null;
+
     public  int     m_timer         = 0;
     public  float   m_elapsedTime   = 0f;
     public  bool    m_isEating      = false;
@@ -52,6 +55,7 @@ public class Child : MonoBehaviour
     {
         m_Slider = GetComponentInChildren<Slider>();
         m_Slider.value = 0f;
+        m_Slider_Foreground.color = Color.green;
 
         if (GameManager.instance.isReady == false)
         {
@@ -136,6 +140,7 @@ public class Child : MonoBehaviour
         {
             m_isEating = true;
             m_elapsedTime = 0f;
+            m_Slider_Foreground.color = Color.green;
         }
     }
 
@@ -151,6 +156,7 @@ public class Child : MonoBehaviour
             {
                 m_currentIncident = pair.Value;
                 m_isEating = false;
+                m_Slider_Foreground.color = Color.red;
 
                 Debug.Log("Start new incident : " + m_currentIncident.name);
                 break;
