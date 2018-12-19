@@ -108,7 +108,6 @@ public class Child : MonoBehaviour
                 {
                     // We start an incident
                     StartIncident();
-                    SolveIncident();
                 }
             }
         }
