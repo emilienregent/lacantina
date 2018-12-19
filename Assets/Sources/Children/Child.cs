@@ -138,10 +138,10 @@ public class Child : MonoBehaviour
 
     // Solve an incident with a kid
     // If he has vegetable to eat, he starts to eat again
-    public void SolveIncident(uint responseId)
+    public int SolveIncident(uint responseId)
     {
-
         ResponseConfig response = GameManager.instance.responseIdToConfig[responseId];
+        int points = 0;
 
         Debug.Log("Solve incident with: " + response.name);
 
@@ -149,7 +149,9 @@ public class Child : MonoBehaviour
         {
             UnityEngine.Assertions.Assert.IsTrue(response.incidentIdToResult.ContainsKey(m_currentIncident.id), "Can't find result for response " + response.name + " and " + m_currentIncident.name);
 
-            if(response.incidentIdToResult[m_currentIncident.id] == false)
+            points = response.incidentIdToResult[m_currentIncident.id] ? response.points : -response.points;
+
+            if (response.incidentIdToResult[m_currentIncident.id] == false)
             {
 
                 Debug.Log("Wrong response to incident: " + response.name);
@@ -158,7 +160,7 @@ public class Child : MonoBehaviour
                 if(m_currentVegetable.timeToIncident - response.time <= 0)
                 {
                     StartIncident();
-                    return;
+                    return points;
                 }
 
             } else
@@ -178,6 +180,8 @@ public class Child : MonoBehaviour
             m_elapsedTime = 0f;
             m_Slider_Foreground.color = Color.green;
         }
+
+        return points;
     }
 
     // Start a random incident

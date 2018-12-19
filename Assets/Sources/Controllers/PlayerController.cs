@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     public int joystickNumber;
 
+    private int _score = 0;
+    public int score { get { return _score; } }
+
     // Update is called once per frame
     private void Update()
     {
@@ -116,7 +119,9 @@ public class PlayerController : MonoBehaviour
     {
         if (_childInRange.m_currentIncident != null)
         {
-            _childInRange.SolveIncident(responseId);
+            int points = _childInRange.SolveIncident(responseId);
+
+            _score += points;
 
             _playerCanvas.EnableFeedback("Response/response_" + GameManager.instance.responseIdToConfig[responseId].name.ToLower());
         }
