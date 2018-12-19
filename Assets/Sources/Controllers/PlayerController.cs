@@ -72,7 +72,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Children")
+
+        if (other.tag == "Children" && other.transform.parent.gameObject.tag == "SpawnerPlayer" + joystickNumber.ToString())
         {
             other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Cyan");
 
