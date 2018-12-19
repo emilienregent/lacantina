@@ -15671,11 +15671,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2921521001585707210}
     m_Modifications:
-    - target: {fileID: 4065582940238332106, guid: 8004756c6ecf6b44892153ac8b7e4801,
-        type: 3}
-      propertyPath: m_Name
-      value: Links
-      objectReference: {fileID: 0}
     - target: {fileID: 4065582940238332109, guid: 8004756c6ecf6b44892153ac8b7e4801,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15745,6 +15740,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065582940238332106, guid: 8004756c6ecf6b44892153ac8b7e4801,
+        type: 3}
+      propertyPath: m_Name
+      value: Links
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8004756c6ecf6b44892153ac8b7e4801, type: 3}
