@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using La.Cantina.Types;
 using La.Cantina.Manager;
 using System;
+using La.Cantina.UI;
 
 public class Child : MonoBehaviour
 {
@@ -17,10 +18,12 @@ public class Child : MonoBehaviour
     [HideInInspector]
     public int playerNumber = 0;
 
+    [SerializeField]
+    private ChildCanvasController _childCanvas = null;
+
     private Seat currentSeat = null;
 
-    private Slider  m_Slider;
-    [SerializeField] private Image m_Slider_Background = null;
+    [SerializeField] private Slider  m_Slider = null;
     [SerializeField] private Image m_Slider_Foreground = null;
 
     public  int     m_timer         = 0;
@@ -47,15 +50,10 @@ public class Child : MonoBehaviour
     public void InitForPlayer(int player)
     {
         playerNumber = player;
-
-
     }
 
     public void Awake()
     {
-        m_Slider_Background.enabled = false;
-
-        m_Slider = GetComponentInChildren<Slider>();        
         m_Slider.value = 0f;
         m_Slider_Foreground.color = Color.green;
 
@@ -130,7 +128,7 @@ public class Child : MonoBehaviour
             m_isEating = true;
             m_elapsedTime = 0f;
             m_currentVegetable = vegetable;
-            m_Slider_Background.enabled = true;
+            _childCanvas.EnableTimer(true);
         }
 
         return m_currentIncident == null;
@@ -148,11 +146,14 @@ public class Child : MonoBehaviour
         if (m_currentIncident != null)
         {
             UnityEngine.Assertions.Assert.IsTrue(response.incidentIdToResult.ContainsKey(m_currentIncident.id), "Can't find result for response " + response.name + " and " + m_currentIncident.name);
+
             if(response.incidentIdToResult[m_currentIncident.id] == false)
             {
                 Debug.Log("Wrong response to incident: " + response.name);
                 return;
             }
+
+            _childCanvas.DisableFeedback();
         }
 
         m_currentIncident = null;
@@ -178,6 +179,8 @@ public class Child : MonoBehaviour
                 m_currentIncident = pair.Value;
                 m_isEating = false;
                 m_Slider_Foreground.color = Color.red;
+
+                _childCanvas.EnableFeedback("Incident/incident_" + m_currentIncident.name.ToLower(), true);
 
                 Debug.Log("Start new incident : " + m_currentIncident.name);
                 break;

@@ -7,7 +7,7 @@ namespace La.Cantina.UI
 {
     public class Timer : MonoBehaviour
     {
-        private const string TIMER_FORMAT = "{0}:{1}";
+        private const string TIMER_FORMAT = "{0}:{1}s";
 
         [SerializeField] private Text _timerText = null;
 

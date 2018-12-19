@@ -15,10 +15,8 @@ public class PlayerController : MonoBehaviour
     private const uint RESPONSE_CUDDLE = 2197215719;
     private const uint RESPONSE_CLEAN = 832448903;
 
-
     private VegetableConfig _vegetableCarried = null;
 
-    [SerializeField] private MeshRenderer           _body           = null;
     [SerializeField] private PlayerCanvasController _playerCanvas   = null;
 
     public int joystickNumber;
@@ -131,7 +129,6 @@ public class PlayerController : MonoBehaviour
         if (_vegetableConfig != null)
         {
             _vegetableCarried = _vegetableConfig;
-            _body.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
 
             _playerCanvas.EnableFeedback("Food/food_" + _vegetableConfig.name.ToLower(),  true);
         }
@@ -144,8 +141,6 @@ public class PlayerController : MonoBehaviour
             if(_childInRange.GiveFood(_vegetableCarried) == true)
             {
                 _vegetableCarried = null;
-
-                _body.material = Resources.Load<Material>("Materials/Empty");
 
                 _playerCanvas.DisableFeedback();
             }
