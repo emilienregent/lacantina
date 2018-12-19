@@ -124,13 +124,16 @@ public class PlayerController : MonoBehaviour
 
     private void TakeFood(FoodSlotController foodSlot)
     {
-        VegetableConfig _vegetableConfig = foodSlot.Take();
-
-        if (_vegetableConfig != null)
+        if (_vegetableCarried == null)
         {
-            _vegetableCarried = _vegetableConfig;
+            VegetableConfig vegetableConfig = foodSlot.Take();
 
-            _playerCanvas.EnableFeedback("Food/food_" + _vegetableConfig.name.ToLower(),  true);
+            if (vegetableConfig != null)
+            {
+                _vegetableCarried = vegetableConfig;
+
+                _playerCanvas.EnableFeedback("Food/food_" + vegetableConfig.name.ToLower(), true);
+            }
         }
     }
 
