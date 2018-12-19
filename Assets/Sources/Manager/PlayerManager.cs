@@ -1,4 +1,5 @@
 ﻿using La.Cantina.Level;
+using System;
 using UnityEngine;
 
 namespace La.Cantina.Manager
@@ -7,12 +8,25 @@ namespace La.Cantina.Manager
     {
         public int playerNumber = 1;
         private Spawner _spawner = null;
+        private bool _fullSpawned = false;
 
         [SerializeField]
-        private float _fullSpawnDelay = 15f;
+        private int _fullSpawnDelay = 15;
 
-        public void Start()
+        private void Awake()
         {
+            if (GameManager.instance.isReady == false)
+                GameManager.instance.Initialized += OnGameInitialized;
+            else
+                OnGameInitialized(GameManager.instance, null);
+
+            GameManager.instance.TimerUpdated += OnTimerUpdated;
+        }
+
+        private void OnGameInitialized(object sender, EventArgs eventArgs)
+        {
+
+
             GameObject[] spawners = GameObject.FindGameObjectsWithTag(string.Format("SpawnerPlayer{0}", playerNumber));
             GameObject[] seatings = GameObject.FindGameObjectsWithTag(string.Format("SeatingPlayer{0}", playerNumber));
 
@@ -34,14 +48,12 @@ namespace La.Cantina.Manager
             AddChild();
         }
 
-        public void Update()
+        private void OnTimerUpdated(object sender, int elapsedtime)
         {
-            if (_fullSpawnDelay > 0f)
+            if (!_fullSpawned && elapsedtime > _fullSpawnDelay)
             {
-                _fullSpawnDelay -= Time.deltaTime;
-
-                if (_fullSpawnDelay < 0f)
-                    AddChild(5);
+                AddChild(GameManager.instance.currentLevelConfig.children_per_player - 1);
+                _fullSpawned = true;
             }
         }
 
