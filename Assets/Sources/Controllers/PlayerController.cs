@@ -2,7 +2,6 @@
 using La.Cantina.Manager;
 using La.Cantina.Types;
 using La.Cantina.UI;
-using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
