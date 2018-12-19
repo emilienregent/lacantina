@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
     private float speed = 0.2f;
     Child _childInRange = null;
 
+    private const uint RESPONSE_FORCE = 236373571;
+    private const uint RESPONSE_SHOUT = 1555546080;
+    private const uint RESPONSE_CUDDLE = 2197215719;
+    private const uint RESPONSE_CLEAN = 832448903;
+
 
     private VegetableConfig _vegetableCarried = null;
 
@@ -53,64 +58,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Bouton d'Action 1 (A)
-    bool Action1()
+
+
+    // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
+    bool isPressedAction(int button)
     {
-        bool isPressed = Input.GetButton("Action1_P" + joystickNumber.ToString());
+        bool isPressed = Input.GetButton("Action" + button.ToString() + "_P" + joystickNumber.ToString());
 
-        if(isPressed == true)
-        {
-            //_renderer.material.color = Color.green;
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
-
-    // Bouton d'Action 2 (B)
-    bool Action2()
-    {
-        bool isPressed = Input.GetButton("Action2_P" + joystickNumber.ToString());
-
-        if (isPressed == true)
-        {
-            //_renderer.material.color = Color.red;
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
-
-    // Bouton d'Action 3 (Y)
-    bool Action3()
-    {
-        bool isPressed = Input.GetButton("Action3_P" + joystickNumber.ToString());
-
-        if (isPressed == true)
-        {
-            //_renderer.material.color = Color.yellow;
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
-
-    // Bouton d'Action 4 (X)
-    bool Action4()
-    {
-        bool isPressed = Input.GetButton("Action4_P" + joystickNumber.ToString());
-
-        if (isPressed == true)
-        {
-            //_renderer.material.color = Color.blue;
-            return true;
-        } else
-        {
-            return false;
-        }
+        return isPressed;
     }
 
 
@@ -149,21 +104,21 @@ public class PlayerController : MonoBehaviour
     // Actions sur un enfant
     void ActionChild()
     {
-        if(Action1() == true)
+        if(isPressedAction(1) == true)
         {
             giveFood();
-            ManageIncident(1);
+            _childInRange.SolveIncident(RESPONSE_FORCE);
 
 
-        } else if(Action2() == true)
+        } else if(isPressedAction(2) == true)
         {
-
-        } else if(Action3() == true)
+            _childInRange.SolveIncident(RESPONSE_SHOUT);
+        } else if(isPressedAction(3) == true)
         {
-
-        } else if (Action4() == true)
+            _childInRange.SolveIncident(RESPONSE_CUDDLE);
+        } else if (isPressedAction(4) == true)
         {
-
+            _childInRange.SolveIncident(RESPONSE_CLEAN);
         }
     }
 
@@ -184,7 +139,7 @@ public class PlayerController : MonoBehaviour
     // Actions sur le chariot
     void ActionFoodSlot(FoodSlotController foodSlot)
     {
-        if(Action1() == true)
+        if(isPressedAction(1) == true)
         {
             VegetableConfig _vegetableConfig = foodSlot.Take();
 
@@ -196,17 +151,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Réponse du joueur à un incident
-    void ManageIncident(int responseId)
-    {
-        IncidentConfig _childrenIncident = _childInRange.m_currentIncident;
-
-
-        if (_childrenIncident != null)
-        {
-            _childInRange.SolveIncident();
-        }
-
-        
-    }
 }

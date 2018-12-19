@@ -138,9 +138,21 @@ public class Child : MonoBehaviour
 
     // Solve an incident with a kid
     // If he has vegetable to eat, he starts to eat again
-    public void SolveIncident()
+    public void SolveIncident(uint responseId)
     {
         Debug.Log("Solve incident");
+
+        ResponseConfig response = GameManager.instance.responseIdToConfig[responseId];
+
+        if(m_currentIncident != null)
+        {
+            if(response.incidentIdToResult[m_currentIncident.id] == false)
+            {
+                Debug.Log("Wrong response to incident " + response.name);
+                return;
+            }
+        }
+
         m_currentIncident = null;
         if(m_currentVegetable != null)
         {
