@@ -8,7 +8,8 @@
       "Difficulty": "high",
       "time_to_incident": 3,
       "time_to_eat": 10,
-      "Points": 20
+      "Points": 20,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_2",
@@ -18,7 +19,8 @@
       "Difficulty": "high",
       "time_to_incident": 3,
       "time_to_eat": 10,
-      "Points": 20
+      "Points": 20,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_3",
@@ -28,7 +30,8 @@
       "Difficulty": "medium",
       "time_to_incident": 5,
       "time_to_eat": 10,
-      "Points": 10
+      "Points": 10,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_4",
@@ -38,7 +41,8 @@
       "Difficulty": "medium",
       "time_to_incident": 5,
       "time_to_eat": 10,
-      "Points": 10
+      "Points": 10,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_5",
@@ -48,7 +52,8 @@
       "Difficulty": "low",
       "time_to_incident": 8,
       "time_to_eat": 10,
-      "Points": 5
+      "Points": 5,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_6",
@@ -58,7 +63,8 @@
       "Difficulty": "low",
       "time_to_incident": 8,
       "time_to_eat": 10,
-      "Points": 5
+      "Points": 5,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_7",
@@ -68,7 +74,8 @@
       "Difficulty": "low",
       "time_to_incident": 8,
       "time_to_eat": 10,
-      "Points": 5
+      "Points": 5,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_8",
@@ -78,7 +85,8 @@
       "Difficulty": "high",
       "time_to_incident": 3,
       "time_to_eat": 10,
-      "Points": 20
+      "Points": 20,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_9",
@@ -88,7 +96,8 @@
       "Difficulty": "high",
       "time_to_incident": 3,
       "time_to_eat": 10,
-      "Points": 20
+      "Points": 20,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_12",
@@ -98,7 +107,8 @@
       "Difficulty": "medium",
       "time_to_incident": 5,
       "time_to_eat": 10,
-      "Points": 5
+      "Points": 5,
+      "Waiting": 10
     },
     {
       "Vegetable_ID": "veg_13",
@@ -108,7 +118,8 @@
       "Difficulty": "medium",
       "time_to_incident": 5,
       "time_to_eat": 10,
-      "Points": 5
+      "Points": 5,
+      "Waiting": 10
     }
   ],
   "Objective_define": [
@@ -197,7 +208,7 @@
       "Level_id_CRC": 2386292924,
       "battle": 1,
       "battle_name": "missing_text",
-      "time_sec": 120,
+      "time_sec": 90,
       "children_per_player": 3,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -207,7 +218,7 @@
       "Level_id_CRC": 2769724287,
       "battle": 2,
       "battle_name": "missing_text",
-      "time_sec": 120,
+      "time_sec": 90,
       "children_per_player": 4,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -217,7 +228,7 @@
       "Level_id_CRC": 3155006014,
       "battle": 3,
       "battle_name": "missing_text",
-      "time_sec": 120,
+      "time_sec": 90,
       "children_per_player": 5,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -227,7 +238,7 @@
       "Level_id_CRC": 4081845497,
       "battle": 4,
       "battle_name": "missing_text",
-      "time_sec": 120,
+      "time_sec": 90,
       "children_per_player": 6,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -435,6 +446,6 @@
   "CONVERSION_INFO": {
     "release_version": "1.6.2",
     "release_date": "2018-09-27",
-    "conversion_date": "2018-12-19T14:51:00.517756Z"
+    "conversion_date": "2018-12-19T18:43:51.4616611Z"
   }
 }
