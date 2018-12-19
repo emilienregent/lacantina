@@ -1,5 +1,6 @@
 ﻿using La.Cantina.Controllers;
 using La.Cantina.Types;
+using La.Cantina.Manager;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -150,8 +151,9 @@ public class PlayerController : MonoBehaviour
     {
         if(Action1() == true)
         {
-
             giveFood();
+            ManageIncident(1);
+
 
         } else if(Action2() == true)
         {
@@ -190,5 +192,19 @@ public class PlayerController : MonoBehaviour
                 _meshRenderer.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
             }
         }
+    }
+
+    // Réponse du joueur à un incident
+    void ManageIncident(int responseId)
+    {
+        IncidentConfig _childrenIncident = _childInRange.m_currentIncident;
+
+
+        if (_childrenIncident != null)
+        {
+            _childInRange.SolveIncident();
+        }
+
+        
     }
 }
