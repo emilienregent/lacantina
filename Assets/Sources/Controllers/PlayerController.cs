@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     Child _childInRange = null;
 
 
-    private VegetableConfig _vegetableConfig = null;
+    private VegetableConfig _vegetableCarried = null;
 
     private MeshRenderer _meshRenderer = null;
 
@@ -150,10 +150,8 @@ public class PlayerController : MonoBehaviour
     {
         if(Action1() == true)
         {
-            if (_vegetableConfig != null)
-            {
-                _childInRange.GiveFood(_vegetableConfig);
-            }
+
+            giveFood();
 
         } else if(Action2() == true)
         {
@@ -167,14 +165,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void giveFood()
+    {
+
+        if (_vegetableCarried != null)
+        {
+            _childInRange.GiveFood(_vegetableCarried);
+            _vegetableCarried = null;
+
+            _meshRenderer.material = Resources.Load<Material>("Materials/Empty");
+        }
+    }
+
     // Actions sur le chariot
     void ActionFoodSlot(FoodSlotController foodSlot)
     {
         if(Action1() == true)
         {
-            _vegetableConfig = foodSlot.Take();
+            VegetableConfig _vegetableConfig = foodSlot.Take();
+
             if (_vegetableConfig != null)
             {
+                _vegetableCarried = _vegetableConfig;
                 _meshRenderer.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
             }
         }
