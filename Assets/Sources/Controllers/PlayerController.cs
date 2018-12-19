@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
     private bool IsPressedAction(int button)
     {
-        bool isPressed = Input.GetButtonUp("Action" + button.ToString() + "_P" + joystickNumber.ToString());
+        bool isPressed = Input.GetButtonDown("Action" + button.ToString() + "_P" + joystickNumber.ToString());
 
         return isPressed;
     }
@@ -96,24 +96,24 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                RespondToIncident(RESPONSE_FORCE);
+                ManageIncident(RESPONSE_FORCE);
             }
         }
         else if(IsPressedAction(2) == true)
         {
-            RespondToIncident(RESPONSE_SHOUT);
+            ManageIncident(RESPONSE_SHOUT);
         }
         else if(IsPressedAction(3) == true)
         {
-            RespondToIncident(RESPONSE_CUDDLE);
+            ManageIncident(RESPONSE_CUDDLE);
         }
         else if (IsPressedAction(4) == true)
         {
-            RespondToIncident(RESPONSE_CLEAN);
+            ManageIncident(RESPONSE_CLEAN);
         }
     }
 
-    private void RespondToIncident(uint responseId)
+    private void ManageIncident(uint responseId)
     {
         if (_childInRange.m_currentIncident != null)
         {

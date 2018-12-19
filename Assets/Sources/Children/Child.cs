@@ -140,16 +140,17 @@ public class Child : MonoBehaviour
     // If he has vegetable to eat, he starts to eat again
     public void SolveIncident(uint responseId)
     {
-        Debug.Log("Solve incident");
 
         ResponseConfig response = GameManager.instance.responseIdToConfig[responseId];
 
-        if(m_currentIncident != null)
+        Debug.Log("Solve incident with: " + response.name);
+
+        if (m_currentIncident != null)
         {
             UnityEngine.Assertions.Assert.IsTrue(response.incidentIdToResult.ContainsKey(m_currentIncident.id), "Can't find result for response " + response.name + " and " + m_currentIncident.name);
             if(response.incidentIdToResult[m_currentIncident.id] == false)
             {
-                Debug.Log("Wrong response to incident " + response.name);
+                Debug.Log("Wrong response to incident: " + response.name);
                 return;
             }
         }
