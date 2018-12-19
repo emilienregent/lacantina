@@ -13,7 +13,7 @@
     {
       "Vegetable_ID": "veg_2",
       "Vegetable_ID_CRC": 3946399505,
-      "Name": "Broccoli",
+      "Name": "Brocoli",
       "type": "Vegetable",
       "Difficulty": "high",
       "time_to_incident": 3,
@@ -23,7 +23,7 @@
     {
       "Vegetable_ID": "veg_3",
       "Vegetable_ID_CRC": 4062344784,
-      "Name": "Aubergine",
+      "Name": "Eggplant",
       "type": "Vegetable",
       "Difficulty": "medium",
       "time_to_incident": 5,
@@ -43,7 +43,7 @@
     {
       "Vegetable_ID": "veg_5",
       "Vegetable_ID_CRC": 2759381462,
-      "Name": "Hamburger",
+      "Name": "Burger",
       "type": "Junk",
       "Difficulty": "low",
       "time_to_incident": 8,
@@ -53,7 +53,7 @@
     {
       "Vegetable_ID": "veg_6",
       "Vegetable_ID_CRC": 2404745749,
-      "Name": "French Fries",
+      "Name": "Fries",
       "type": "Junk",
       "Difficulty": "low",
       "time_to_incident": 8,
@@ -63,7 +63,7 @@
     {
       "Vegetable_ID": "veg_7",
       "Vegetable_ID_CRC": 2521740116,
-      "Name": "Pancakes",
+      "Name": "Pancake",
       "type": "Junk",
       "Difficulty": "low",
       "time_to_incident": 8,
@@ -252,12 +252,12 @@
     {
       "Incident_ID": "Playing",
       "Incident_ID_CRC": 2288801252,
-      "Name": "Playing"
+      "Name": "Play"
     },
     {
       "Incident_ID": "Crying",
       "Incident_ID_CRC": 2738184115,
-      "Name": "Crying"
+      "Name": "Cry"
     }
   ],
   "Response_Define": [
@@ -435,6 +435,6 @@
   "CONVERSION_INFO": {
     "release_version": "1.6.2",
     "release_date": "2018-09-27",
-    "conversion_date": "2018-12-19T13:50:37.5665275Z"
+    "conversion_date": "2018-12-19T14:51:00.517756Z"
   }
 }

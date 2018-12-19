@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace La.Cantina.UI
 {
@@ -8,6 +9,7 @@ namespace La.Cantina.UI
         private const int FEEDBACK_TIMER = 1;
 
         private Canvas _canvas = null;
+        [SerializeField] private Image _icon = null;
 
         private void Awake()
         {
@@ -16,8 +18,9 @@ namespace La.Cantina.UI
             _canvas.enabled = false;
         }
 
-        public void EnableFeedback(bool infinite = false)
+        public void EnableFeedback(string path, bool infinite = false)
         {
+            _icon.sprite = Resources.Load<Sprite>("Images/" + path);
             _canvas.enabled = true;
 
             if (infinite == false)

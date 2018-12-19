@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 3847513103343268252}
-  _playerCanvas: {fileID: 1034038528017420512}
+  _playerCanvas: {fileID: 1644441878847653689}
   joystickNumber: 1
 --- !u!54 &1902945957
 Rigidbody:
@@ -279,18 +279,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 1.1412071}
   m_Center: {x: 0, y: 0, z: 0.42060345}
---- !u!114 &1034038528017420512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3603586865222524112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b2e97e820bc7334a9efd9a7263ac7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1849366914279958647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -410,15 +398,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03a0d32929cb6ae4c8c2f96031ad7890, type: 3}
---- !u!1 &3603586865222524112 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3145982319171368103, guid: 03a0d32929cb6ae4c8c2f96031ad7890,
-    type: 3}
-  m_PrefabInstance: {fileID: 1849366914279958647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3603586865222524119 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3145982319171368096, guid: 03a0d32929cb6ae4c8c2f96031ad7890,
     type: 3}
   m_PrefabInstance: {fileID: 1849366914279958647}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644441878847653689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1114779738758049614, guid: 03a0d32929cb6ae4c8c2f96031ad7890,
+    type: 3}
+  m_PrefabInstance: {fileID: 1849366914279958647}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2e97e820bc7334a9efd9a7263ac7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

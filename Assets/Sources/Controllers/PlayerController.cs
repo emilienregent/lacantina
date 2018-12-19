@@ -1,4 +1,5 @@
 ﻿using La.Cantina.Controllers;
+using La.Cantina.Manager;
 using La.Cantina.Types;
 using La.Cantina.UI;
 using System.Collections;
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             _childInRange.SolveIncident(responseId);
 
-            _playerCanvas.EnableFeedback();
+            _playerCanvas.EnableFeedback("Response/response_" + GameManager.instance.responseIdToConfig[responseId].name.ToLower());
         }
     }
 
@@ -132,7 +133,7 @@ public class PlayerController : MonoBehaviour
             _vegetableCarried = _vegetableConfig;
             _body.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
 
-            _playerCanvas.EnableFeedback(true);
+            _playerCanvas.EnableFeedback("Food/food_" + _vegetableConfig.name.ToLower(),  true);
         }
     }
 
