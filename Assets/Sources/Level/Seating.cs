@@ -7,7 +7,7 @@ public class Seating : MonoBehaviour
 
     private void ShuffleSeats()
     {
-        System.Random rng = new System.Random();
+        System.Random rng = new System.Random(Time.frameCount + GetHashCode());
 
         for (int i = 0; i < seats.Length; ++i)
         {
