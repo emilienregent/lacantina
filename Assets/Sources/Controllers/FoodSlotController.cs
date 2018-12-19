@@ -10,19 +10,14 @@ namespace La.Cantina.Controllers
     {
         private static float TIME_BEFORE_REFILL = 3f;
 
-        [SerializeField] private Image _refillImage  = null;
+        [SerializeField] private Image _foodImage   = null;
+        [SerializeField] private Image _refillImage = null;
 
         private bool            _isAvailable        = false;
-        private MeshRenderer    _meshRenderer       = null;
         private float           _elapsedTime        = 0f;
         private VegetableConfig _vegetableConfig    = null;
 
         public bool isAvailable { get { return _isAvailable; } }
-
-        private void Awake()
-        {
-            _meshRenderer = GetComponent<MeshRenderer>();
-        }
 
         public VegetableConfig Refill()
         {
@@ -36,7 +31,8 @@ namespace La.Cantina.Controllers
                     _isAvailable        = true;
                     _vegetableConfig    = pair.Value;
 
-                    _meshRenderer.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
+                    _foodImage.sprite = Resources.Load<Sprite>("Images/Food/food_" + _vegetableConfig.name.Replace(" ", "").ToLower());
+                    _foodImage.enabled = true;
 
                     break;
                 }
@@ -54,10 +50,10 @@ namespace La.Cantina.Controllers
                 _isAvailable = false;
                 _elapsedTime = 0f;
 
+                _foodImage.enabled = false;
+
                 _refillImage.fillAmount = 0f;
                 _refillImage.enabled = true;
-
-                _meshRenderer.material = Resources.Load<Material>("Materials/Empty");
 
                 return _vegetableConfig;
             }
