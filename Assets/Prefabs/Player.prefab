@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 292467410242668048}
   - component: {fileID: 1902945957}
   - component: {fileID: 3521894251438828849}
-  - component: {fileID: 3160399191676588001}
+  - component: {fileID: 4510937537713881585}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -130,8 +130,7 @@ MonoBehaviour:
   m_ResponseClipSuccess: {fileID: 8300000, guid: 04b31a7e95413e843b5f7bf273ac4c71,
     type: 3}
   m_ResponseClipFail: {fileID: 8300000, guid: 0f624597f1c588c4193344d83682ec51, type: 3}
-  m_AudioSourceSFX: {fileID: 3160399191676588001}
-  _body: {fileID: 3847513103343268252}
+  m_AudioSourceSFX: {fileID: 4510937537713881585}
   _playerCanvas: {fileID: 1644441878847653689}
   joystickNumber: 1
 --- !u!54 &1902945957
@@ -163,7 +162,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &3160399191676588001
+--- !u!82 &4510937537713881585
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +174,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243288538670585280, guid: 9a1e8874892dd4744a31473d5dfffdaa,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -363,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 3545343266026109235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.82}
   m_Children: []
   m_Father: {fileID: 292467410242668060}
   m_RootOrder: 1

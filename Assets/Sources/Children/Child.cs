@@ -104,13 +104,12 @@ public class Child : MonoBehaviour
 
                 // Progression based on the vegetable configuration
                 m_Slider.value = (100 / m_currentVegetable.timeToEat) * m_timer;
-                Debug.Log("Incident timer " + (m_timer + timeToIncidentModifier) + "/" + (m_currentVegetable.timeToIncident + timeToIncidentModifier));
+
 
                 // If the gauge is filled, the kid has finished to eat
                 if (m_timer >= m_currentVegetable.timeToEat)
                 {
-                    m_isEating = false;
-                    m_currentVegetable = null;
+                    endMeal();
                 }
                 // If the incident trigger delay is reached
                 else if (m_timer != 0 && ((m_timer + timeToIncidentModifier) % (m_currentVegetable.timeToIncident + timeToIncidentModifier) == 0))
@@ -137,6 +136,15 @@ public class Child : MonoBehaviour
         }
 
         return m_currentIncident == null;
+    }
+
+    private void endMeal()
+    {
+        m_isEating = false;
+        m_currentVegetable = null;
+        _childCanvas.EnableTimer(false);
+        m_Slider.value = 0;
+        m_timer = 0;
     }
 
     // Solve an incident with a kid
