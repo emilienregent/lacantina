@@ -14,6 +14,7 @@ namespace La.Cantina.Level
                 {
                     children[i].transform.position = transform.position;
                     children[i].gameObject.SetActive(true);
+
                     return children[i];
                 }
             }

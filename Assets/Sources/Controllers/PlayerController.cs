@@ -15,14 +15,18 @@ public class PlayerController : MonoBehaviour
     private const uint RESPONSE_CUDDLE = 2197215719;
     private const uint RESPONSE_CLEAN = 832448903;
 
+    public AudioClip m_ResponseClipSuccess;
+    public AudioClip m_ResponseClipFail;
+    public AudioSource m_AudioSourceSFX;
+
+    private int _score = 0;
+    public int score { get { return _score; } }
+
     private VegetableConfig _vegetableCarried = null;
 
     [SerializeField] private PlayerCanvasController _playerCanvas   = null;
 
     public int joystickNumber;
-
-    private int _score = 0;
-    public int score { get { return _score; } }
 
     // Update is called once per frame
     private void Update()
@@ -120,9 +124,12 @@ public class PlayerController : MonoBehaviour
     {
         if (_childInRange.m_currentIncident != null)
         {
-            int points = _childInRange.SolveIncident(responseId);
+            bool result = _childInRange.SolveIncident(responseId);
 
-            _score += points;
+            _score = result ? GameManager.instance.responseIdToConfig[responseId].points : -GameManager.instance.responseIdToConfig[responseId].points;
+
+            m_AudioSourceSFX.clip = result ? m_ResponseClipSuccess : m_ResponseClipFail;
+            m_AudioSourceSFX.Play();
 
             _playerCanvas.EnableFeedback("Response/response_" + GameManager.instance.responseIdToConfig[responseId].name.ToLower());
         }
