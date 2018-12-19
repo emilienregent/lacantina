@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2405531414902643453}
   m_Layer: 0
   m_Name: Child
-  m_TagString: Untagged
+  m_TagString: Children
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,9 +90,9 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194186780923276430}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.75
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -147,10 +147,9 @@ MonoBehaviour:
   _navMeshAgent: {fileID: 2602280271006570250}
   allowedSeating: {fileID: 0}
   playerNumber: 0
-  m_elapsedTime: 0
-  m_triggerDelay: 2
-  m_isEating: 0
   m_timer: 0
+  m_elapsedTime: 0
+  m_isEating: 0
 --- !u!1001 &1493947205094645385
 PrefabInstance:
   m_ObjectHideFlags: 0
