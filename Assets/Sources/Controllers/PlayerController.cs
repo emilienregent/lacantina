@@ -172,10 +172,12 @@ public class PlayerController : MonoBehaviour
 
         if (_vegetableCarried != null)
         {
-            _childInRange.GiveFood(_vegetableCarried);
-            _vegetableCarried = null;
+            if(_childInRange.GiveFood(_vegetableCarried) == true)
+            {
+                _vegetableCarried = null;
 
-            _meshRenderer.material = Resources.Load<Material>("Materials/Empty");
+                _meshRenderer.material = Resources.Load<Material>("Materials/Empty");
+            }
         }
     }
 

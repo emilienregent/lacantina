@@ -53,7 +53,9 @@ public class Child : MonoBehaviour
 
     public void Awake()
     {
-        m_Slider = GetComponentInChildren<Slider>();
+        m_Slider_Background.enabled = false;
+
+        m_Slider = GetComponentInChildren<Slider>();        
         m_Slider.value = 0f;
         m_Slider_Foreground.color = Color.green;
 
@@ -119,15 +121,19 @@ public class Child : MonoBehaviour
 
     // Give vegetable to a kid
     // If he is currently in an incident, he doesn't start to eat
-    public void GiveFood(VegetableConfig vegetable)
+    public bool GiveFood(VegetableConfig vegetable)
     {
         Debug.Log("Give Food : " + vegetable.name);
+
         if(m_currentIncident == null)
         {
             m_isEating = true;
+            m_elapsedTime = 0f;
+            m_currentVegetable = vegetable;
+            m_Slider_Background.enabled = true;
         }
-        m_elapsedTime = 0f;
-        m_currentVegetable = vegetable;
+
+        return m_currentIncident == null;
     }
 
     // Solve an incident with a kid
