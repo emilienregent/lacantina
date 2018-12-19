@@ -34,6 +34,9 @@ public class Child : MonoBehaviour
     public IncidentConfig m_currentIncident = null;
     public VegetableConfig m_currentVegetable = null;
 
+    public List<AudioClip> m_IncidentsSFX;
+    public AudioSource m_AudioSourceSFX;
+
     // Claim a seat in the assigned set and move to its position.
     public void GoSit()
     {
@@ -138,7 +141,7 @@ public class Child : MonoBehaviour
 
     // Solve an incident with a kid
     // If he has vegetable to eat, he starts to eat again
-    public void SolveIncident(uint responseId)
+    public bool SolveIncident(uint responseId)
     {
 
         ResponseConfig response = GameManager.instance.responseIdToConfig[responseId];
@@ -153,18 +156,21 @@ public class Child : MonoBehaviour
             {
 
                 Debug.Log("Wrong response to incident: " + response.name);
+
                 Debug.Log("malus " + response.time);
                 // If Malus is more or equal to timeToIncident, we start a new incident
                 if(m_currentVegetable.timeToIncident - response.time <= 0)
                 {
                     StartIncident();
-                    return;
+                    return false;
                 }
 
             } else
             {
                 timeToIncidentModifier = response.time;
                 Debug.Log("bonus " + response.time);
+
+                return false;
             }
 
             _childCanvas.DisableFeedback();
@@ -178,6 +184,8 @@ public class Child : MonoBehaviour
             m_elapsedTime = 0f;
             m_Slider_Foreground.color = Color.green;
         }
+
+        return true;
     }
 
     // Start a random incident
@@ -197,6 +205,9 @@ public class Child : MonoBehaviour
                 m_Slider_Foreground.color = Color.red;
 
                 _childCanvas.EnableFeedback("Incident/incident_" + m_currentIncident.name.ToLower(), true);
+                AudioClip incidentClip = m_IncidentsSFX[UnityEngine.Random.Range(0, m_IncidentsSFX.Count)];
+                m_AudioSourceSFX.clip = incidentClip;
+                m_AudioSourceSFX.Play();
 
                 Debug.Log("Start new incident : " + m_currentIncident.name);
                 break;
