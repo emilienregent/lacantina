@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
     bool isPressedAction(int button)
     {
-        bool isPressed = Input.GetButton("Action" + button.ToString() + "_P" + joystickNumber.ToString());
+        bool isPressed = Input.GetButtonDown("Action" + button.ToString() + "_P" + joystickNumber.ToString());
 
         return isPressed;
     }
@@ -107,18 +107,18 @@ public class PlayerController : MonoBehaviour
         if(isPressedAction(1) == true)
         {
             giveFood();
-            _childInRange.SolveIncident(RESPONSE_FORCE);
+            ManageIncident(RESPONSE_FORCE);
 
 
         } else if(isPressedAction(2) == true)
         {
-            _childInRange.SolveIncident(RESPONSE_SHOUT);
+            ManageIncident(RESPONSE_SHOUT);
         } else if(isPressedAction(3) == true)
         {
-            _childInRange.SolveIncident(RESPONSE_CUDDLE);
+            ManageIncident(RESPONSE_CUDDLE);
         } else if (isPressedAction(4) == true)
         {
-            _childInRange.SolveIncident(RESPONSE_CLEAN);
+            ManageIncident(RESPONSE_CLEAN);
         }
     }
 
@@ -148,6 +148,14 @@ public class PlayerController : MonoBehaviour
                 _vegetableCarried = _vegetableConfig;
                 _meshRenderer.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
             }
+        }
+    }
+
+    void ManageIncident(uint responseId)
+    {
+        if(_childInRange.m_currentIncident != null)
+        {
+            _childInRange.SolveIncident(responseId);
         }
     }
 
