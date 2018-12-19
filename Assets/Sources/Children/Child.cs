@@ -146,6 +146,7 @@ public class Child : MonoBehaviour
 
         if(m_currentIncident != null)
         {
+            UnityEngine.Assertions.Assert.IsTrue(response.incidentIdToResult.ContainsKey(m_currentIncident.id), "Can't find result for response " + response.name + " and " + m_currentIncident.name);
             if(response.incidentIdToResult[m_currentIncident.id] == false)
             {
                 Debug.Log("Wrong response to incident " + response.name);
@@ -154,6 +155,7 @@ public class Child : MonoBehaviour
         }
 
         m_currentIncident = null;
+
         if(m_currentVegetable != null)
         {
             m_isEating = true;

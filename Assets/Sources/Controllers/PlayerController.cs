@@ -1,8 +1,7 @@
 ﻿using La.Cantina.Controllers;
 using La.Cantina.Types;
-using La.Cantina.Manager;
+using La.Cantina.UI;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -18,29 +17,23 @@ public class PlayerController : MonoBehaviour
 
     private VegetableConfig _vegetableCarried = null;
 
-    private MeshRenderer _meshRenderer = null;
+    [SerializeField] private MeshRenderer           _body           = null;
+    [SerializeField] private PlayerCanvasController _playerCanvas   = null;
 
     public int joystickNumber;
 
-    void Awake()
-    {
-        _meshRenderer = GetComponent<MeshRenderer>();
-    }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // Déplacement du joueur
         float horizontal = Input.GetAxis("Horizontal_P" + joystickNumber.ToString());
         float vertical = Input.GetAxis("Vertical_P" + joystickNumber.ToString());
 
         Move(horizontal, vertical);
-
-        
-
     }
 
     // Déplacements
-    void Move(float horizontal, float vertical)
+    private void Move(float horizontal, float vertical)
     {
         // Création d'un nouveau vecteur de déplacement
         Vector3 move = new Vector3();
@@ -58,28 +51,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
-    bool isPressedAction(int button)
+    private bool IsPressedAction(int button)
     {
-        bool isPressed = Input.GetButton("Action" + button.ToString() + "_P" + joystickNumber.ToString());
+        bool isPressed = Input.GetButtonUp("Action" + button.ToString() + "_P" + joystickNumber.ToString());
 
         return isPressed;
     }
 
-
-
-
-
-    void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Children")
         {
             other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Empty");
             _childInRange = null;
         }
-
     }
 
     private void OnTriggerStay(Collider other)
@@ -97,58 +83,80 @@ public class PlayerController : MonoBehaviour
             FoodSlotController foodSlot = other.GetComponent<FoodSlotController>();
             ActionFoodSlot(foodSlot);
         }
-
-        
     }
 
     // Actions sur un enfant
-    void ActionChild()
+    private void ActionChild()
     {
-        if(isPressedAction(1) == true)
+        if(IsPressedAction(1) == true)
         {
-            giveFood();
-            _childInRange.SolveIncident(RESPONSE_FORCE);
-
-
-        } else if(isPressedAction(2) == true)
+            if (_vegetableCarried != null)
+            {
+                GiveFood();
+            }
+            else
+            {
+                RespondToIncident(RESPONSE_FORCE);
+            }
+        }
+        else if(IsPressedAction(2) == true)
         {
-            _childInRange.SolveIncident(RESPONSE_SHOUT);
-        } else if(isPressedAction(3) == true)
+            RespondToIncident(RESPONSE_SHOUT);
+        }
+        else if(IsPressedAction(3) == true)
         {
-            _childInRange.SolveIncident(RESPONSE_CUDDLE);
-        } else if (isPressedAction(4) == true)
+            RespondToIncident(RESPONSE_CUDDLE);
+        }
+        else if (IsPressedAction(4) == true)
         {
-            _childInRange.SolveIncident(RESPONSE_CLEAN);
+            RespondToIncident(RESPONSE_CLEAN);
         }
     }
 
-    void giveFood()
+    private void RespondToIncident(uint responseId)
     {
+        if (_childInRange.m_currentIncident != null)
+        {
+            _childInRange.SolveIncident(responseId);
 
+            _playerCanvas.EnableFeedback();
+        }
+    }
+
+    private void TakeFood(FoodSlotController foodSlot)
+    {
+        VegetableConfig _vegetableConfig = foodSlot.Take();
+
+        if (_vegetableConfig != null)
+        {
+            _vegetableCarried = _vegetableConfig;
+            _body.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
+
+            _playerCanvas.EnableFeedback(true);
+        }
+    }
+
+    private void GiveFood()
+    {
         if (_vegetableCarried != null)
         {
             if(_childInRange.GiveFood(_vegetableCarried) == true)
             {
                 _vegetableCarried = null;
 
-                _meshRenderer.material = Resources.Load<Material>("Materials/Empty");
+                _body.material = Resources.Load<Material>("Materials/Empty");
+
+                _playerCanvas.DisableFeedback();
             }
         }
     }
 
     // Actions sur le chariot
-    void ActionFoodSlot(FoodSlotController foodSlot)
+    private void ActionFoodSlot(FoodSlotController foodSlot)
     {
-        if(isPressedAction(1) == true)
+        if(IsPressedAction(1) == true)
         {
-            VegetableConfig _vegetableConfig = foodSlot.Take();
-
-            if (_vegetableConfig != null)
-            {
-                _vegetableCarried = _vegetableConfig;
-                _meshRenderer.material = Resources.Load<Material>("Materials/" + _vegetableConfig.name.Replace(" ", ""));
-            }
+            TakeFood(foodSlot);
         }
     }
-
 }
