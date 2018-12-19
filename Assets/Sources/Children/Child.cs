@@ -29,6 +29,7 @@ public class Child : MonoBehaviour
     public  int     m_timer         = 0;
     public  float   m_elapsedTime   = 0f;
     public  bool    m_isEating      = false;
+    public  float   timeToIncidentModifier = 0;
 
     public IncidentConfig m_currentIncident = null;
     public VegetableConfig m_currentVegetable = null;
@@ -100,6 +101,7 @@ public class Child : MonoBehaviour
 
                 // Progression based on the vegetable configuration
                 m_Slider.value = (100 / m_currentVegetable.timeToEat) * m_timer;
+                Debug.Log("Incident timer " + (m_timer + timeToIncidentModifier) + "/" + (m_currentVegetable.timeToIncident + timeToIncidentModifier));
 
                 // If the gauge is filled, the kid has finished to eat
                 if (m_timer >= m_currentVegetable.timeToEat)
@@ -108,7 +110,7 @@ public class Child : MonoBehaviour
                     m_currentVegetable = null;
                 }
                 // If the incident trigger delay is reached
-                else if (m_timer != 0 && (m_timer % m_currentVegetable.timeToIncident == 0))
+                else if (m_timer != 0 && ((m_timer + timeToIncidentModifier) % (m_currentVegetable.timeToIncident + timeToIncidentModifier) == 0))
                 {
                     // We start an incident
                     StartIncident();
@@ -149,8 +151,20 @@ public class Child : MonoBehaviour
 
             if(response.incidentIdToResult[m_currentIncident.id] == false)
             {
+
                 Debug.Log("Wrong response to incident: " + response.name);
-                return;
+                Debug.Log("malus " + response.time);
+                // If Malus is more or equal to timeToIncident, we start a new incident
+                if(m_currentVegetable.timeToIncident - response.time <= 0)
+                {
+                    StartIncident();
+                    return;
+                }
+
+            } else
+            {
+                timeToIncidentModifier = response.time;
+                Debug.Log("bonus " + response.time);
             }
 
             _childCanvas.DisableFeedback();
@@ -169,6 +183,8 @@ public class Child : MonoBehaviour
     // Start a random incident
     private void StartIncident()
     {
+        // Reset Malus/Bonus
+        timeToIncidentModifier = 0;
         int rand = UnityEngine.Random.Range(0, GameManager.instance.incidentIdToConfig.Keys.Count);
         int count = 0;
 
