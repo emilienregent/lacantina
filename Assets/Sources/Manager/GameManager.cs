@@ -34,6 +34,9 @@ namespace La.Cantina.Manager
         private LevelConfig _currentLevelConfig = null;
         public LevelConfig currentLevelConfig { get { return _currentLevelConfig; } }
 
+        private int _playerCount = 1;
+        public int playerCount { get { return _playerCount; } }
+
         public Dictionary<uint, VegetableConfig>    vegetableIdToConfig = null;
         public Dictionary<uint, IncidentConfig>     incidentIdToConfig  = null;
         public Dictionary<uint, ResponseConfig>     responseIdToConfig  = null;

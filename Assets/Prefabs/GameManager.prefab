@@ -59,16 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5ea6c7255aa45449d43abb3a4cf989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
-  seating: {fileID: 0}
-  children:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawner: {fileID: 0}
+  _playerNumber: 1
+  _playerMaterial: {fileID: 2100000, guid: 1d3c62c643c693e4daea9c45eb4fda82, type: 2}
+  _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
+    type: 3}
   _fullSpawnDelay: 15
 --- !u!114 &6322243566879682135
 MonoBehaviour:
@@ -82,16 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5ea6c7255aa45449d43abb3a4cf989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 2
-  seating: {fileID: 0}
-  children:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawner: {fileID: 0}
+  _playerNumber: 2
+  _playerMaterial: {fileID: 2100000, guid: 374a8fc6b0bddad4f8f5a512fa3fa2bc, type: 2}
+  _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
+    type: 3}
   _fullSpawnDelay: 15
 --- !u!114 &6377389212705111915
 MonoBehaviour:
@@ -105,16 +93,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5ea6c7255aa45449d43abb3a4cf989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 3
-  seating: {fileID: 0}
-  children:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawner: {fileID: 0}
+  _playerNumber: 3
+  _playerMaterial: {fileID: 2100000, guid: d1a47f21152c418419800d931c87f297, type: 2}
+  _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
+    type: 3}
   _fullSpawnDelay: 15
 --- !u!114 &452711257087177461
 MonoBehaviour:
@@ -128,14 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5ea6c7255aa45449d43abb3a4cf989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 4
-  seating: {fileID: 0}
-  children:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawner: {fileID: 0}
+  _playerNumber: 4
+  _playerMaterial: {fileID: 2100000, guid: 9c5ef11e4d355424aaff0ded3ef63029, type: 2}
+  _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
+    type: 3}
   _fullSpawnDelay: 15

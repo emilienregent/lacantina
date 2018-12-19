@@ -131,6 +131,7 @@ MonoBehaviour:
     type: 3}
   m_ResponseClipFail: {fileID: 8300000, guid: 0f624597f1c588c4193344d83682ec51, type: 3}
   m_AudioSourceSFX: {fileID: 4510937537713881585}
+  _body: {fileID: 3847513103343268252}
   _playerCanvas: {fileID: 1644441878847653689}
   joystickNumber: 1
 --- !u!54 &1902945957

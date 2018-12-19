@@ -6,9 +6,13 @@ namespace La.Cantina.Manager
 {
     public class PlayerManager : MonoBehaviour
     {
-        public int playerNumber = 1;
-        private Spawner _spawner = null;
-        private bool _fullSpawned = false;
+        [SerializeField] private int            _playerNumber   = 1;
+        [SerializeField] private Material       _playerMaterial = null;
+        [SerializeField] private GameObject     _playerPrefab   = null;
+
+        private Spawner     _spawner        = null;
+        private bool        _fullSpawned    = false;
+        private GameObject  _currentPlayer  = null;
 
         [SerializeField]
         private int _fullSpawnDelay = 15;
@@ -25,16 +29,24 @@ namespace La.Cantina.Manager
 
         private void OnGameInitialized(object sender, EventArgs eventArgs)
         {
+            // Spawn Player
+            if (_playerNumber <= GameManager.instance.playerCount)
+            {
+                _currentPlayer = GameObject.Instantiate(_playerPrefab);
+                _currentPlayer.name = "P" + _playerNumber;
 
+                _currentPlayer.GetComponent<PlayerController>().Initialize(_playerMaterial);
+            }
 
-            GameObject[] spawners = GameObject.FindGameObjectsWithTag(string.Format("SpawnerPlayer{0}", playerNumber));
-            GameObject[] seatings = GameObject.FindGameObjectsWithTag(string.Format("SeatingPlayer{0}", playerNumber));
+            // Spawn Children
+            GameObject[] spawners = GameObject.FindGameObjectsWithTag(string.Format("SpawnerPlayer{0}", _playerNumber));
+            GameObject[] seatings = GameObject.FindGameObjectsWithTag(string.Format("SeatingPlayer{0}", _playerNumber));
 
             if (seatings.Length == 0)
-                Debug.LogError(string.Format("No seating found for player {0}", playerNumber));
+                Debug.LogError(string.Format("No seating found for player {0}", _playerNumber));
 
             if (spawners.Length == 0)
-                Debug.LogError(string.Format("No spawner found for player {0}", playerNumber));
+                Debug.LogError(string.Format("No spawner found for player {0}", _playerNumber));
 
             _spawner = spawners[0].GetComponent<Spawner>();
             Seating seating = seatings[0].GetComponent<Seating>();
@@ -42,7 +54,7 @@ namespace La.Cantina.Manager
             for (int i = 0; i < _spawner.children.Length; ++i)
             {
                 _spawner.children[i].allowedSeating = seating;
-                _spawner.children[i].InitForPlayer(playerNumber);
+                _spawner.children[i].InitForPlayer(_playerNumber);
             }
 
             AddChild();
@@ -68,6 +80,4 @@ namespace La.Cantina.Manager
             }
         }
     }
-
-
 }

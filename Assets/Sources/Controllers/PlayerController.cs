@@ -24,9 +24,15 @@ public class PlayerController : MonoBehaviour
 
     private VegetableConfig _vegetableCarried = null;
 
+    [SerializeField] private MeshRenderer _body = null;
     [SerializeField] private PlayerCanvasController _playerCanvas   = null;
 
     public int joystickNumber;
+
+    public void Initialize(Material material)
+    {
+        _body.material = material;
+    }
 
     // Update is called once per frame
     private void Update()
