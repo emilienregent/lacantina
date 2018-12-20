@@ -29,6 +29,7 @@ namespace La.Cantina.UI
             List<KeyValuePair<int, int>> sortedList = playerIndexToScore.ToList();
 
             sortedList.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
+            sortedList.Reverse();
 
             for (int i = 0; i < _players.Length; ++i)
             {
