@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace La.Cantina.UI
@@ -18,19 +16,11 @@ namespace La.Cantina.UI
 
         private StartController m_StartController;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
-
             if (m_IsInitialized == true)
             {
-
                 if (IsPressedAction(1) && m_IsReady == false)
                 {
                     m_IsReady = true;
@@ -46,9 +36,7 @@ namespace La.Cantina.UI
 
                     m_StartController.CallBackPlayerUnready(m_PlayerID);
                 }
-
             }
-
         }
 
         public void InitPlayer(int id, StartController controller)

@@ -10,12 +10,13 @@ namespace La.Cantina.Manager
         [SerializeField] private int            _playerNumber   = 1;
         [SerializeField] private Material       _playerMaterial = null;
         [SerializeField] private GameObject     _playerPrefab   = null;
+        [SerializeField] private Vector3        _spawnPosition  = Vector3.zero;
 
         private Spawner     _spawner        = null;
         private Seating     _seating        = null;
         private bool        _fullSpawned    = false;
         private GameObject  _currentPlayer  = null;
-        private Vector3     _spawnPosition  = Vector3.zero;
+        
 
         [SerializeField]
         private int _fullSpawnDelay = 15;
@@ -58,7 +59,7 @@ namespace La.Cantina.Manager
                 _currentPlayer = GameObject.Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
                 _currentPlayer.name = "P" + _playerNumber;
 
-                _currentPlayer.GetComponent<PlayerController>().Initialize(_playerMaterial);
+                _currentPlayer.GetComponent<PlayerController>().Initialize(_playerNumber, _playerMaterial);
 
                 for (int i = 0; i < _spawner.children.Length; ++i)
                 {

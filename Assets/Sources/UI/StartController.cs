@@ -1,4 +1,5 @@
-﻿using La.Cantina.Enums;
+﻿using La.Cantina.Data;
+using La.Cantina.Enums;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,10 +21,10 @@ namespace La.Cantina.UI
 
         public Text m_TimerText;
         public List<StartPlayerController> m_Players;
+        public SettingsScriptableObject settings;
 
         private void Start()
         {
-
             // Detect players plugged. Then increment _playersCount accordingly
             _playersCount = Input.GetJoystickNames().Length;
 
@@ -38,10 +39,8 @@ namespace La.Cantina.UI
 
         private void Update()
         {
-
             if (_playersReady == _playersCount)
             {
-
                 // Each second
                 _elapsedTime += Time.deltaTime;
 
@@ -59,6 +58,7 @@ namespace La.Cantina.UI
                         m_TimerText.text = _startTimerText;
                     } else
                     {
+                        settings.numPlayers = _playersReady;
                         SceneManager.LoadScene((int)SceneEnum.GAME);
                     }
                 }

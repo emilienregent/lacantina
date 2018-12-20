@@ -1,4 +1,5 @@
 ﻿using Json.Parser;
+using La.Cantina.Data;
 using La.Cantina.Enums;
 using La.Cantina.Manager;
 using La.Cantina.Parsers;
@@ -11,6 +12,8 @@ namespace La.Cantina.Controller
     {
         private const string GAME_DATA_PATH = "JSON/Game_Data";
         private float _elapsedTime = 0f;
+
+        [SerializeField] private SettingsScriptableObject _settings = null;
 
         private void Awake()
         {
@@ -27,7 +30,7 @@ namespace La.Cantina.Controller
 
             GameManager.instance.TimerEnded += OnTimerEnded;
 
-            GameManager.instance.SetReady();
+            GameManager.instance.SetReady(_settings);
         }
 
         private void Update()

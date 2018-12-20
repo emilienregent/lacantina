@@ -25,12 +25,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerCanvasController _playerCanvas   = null;
     [SerializeField] private Rigidbody _rigidBody = null;
 
-    public int joystickNumber;
+    private int _joystickNumber;
 
-    public void Initialize(Material material)
+    public void Initialize(int index, Material material)
     {
-        _body.material = material;
-        _rigidBody = GetComponent<Rigidbody>();
+        _joystickNumber = index;
+        _body.material  = material;
+        _rigidBody      = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -50,8 +51,8 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 #else
-        float horizontal = Input.GetAxis("Horizontal_P" + joystickNumber.ToString());
-        float vertical = Input.GetAxis("Vertical_P" + joystickNumber.ToString());
+        float horizontal = Input.GetAxis("Horizontal_P" + _joystickNumber.ToString());
+        float vertical = Input.GetAxis("Vertical_P" + _joystickNumber.ToString());
 #endif
 
         Move(horizontal, vertical);
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
 #if ENABLE_KEYBOARD
         bool isPressed = Input.GetButtonDown("Action" + button.ToString() + "_Keyboard");
 #else
-        bool isPressed = Input.GetButtonDown("Action" + button.ToString() + "_P" + joystickNumber.ToString());
+        bool isPressed = Input.GetButtonDown("Action" + button.ToString() + "_P" + _joystickNumber.ToString());
 #endif
 
         return isPressed;
@@ -102,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Children" && other.transform.parent.gameObject.tag == "SpawnerPlayer" + joystickNumber.ToString())
+        if (other.tag == "Children" && other.transform.parent.gameObject.tag == "SpawnerPlayer" + _joystickNumber.ToString())
         {
             other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Cyan");
 
