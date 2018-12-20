@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Sources.UI
+namespace La.Cantina.UI
 {
     public class EndPlayerController : MonoBehaviour
     {
@@ -16,6 +16,13 @@ namespace Assets.Sources.UI
             _playerNumber.text = number.ToString();
             _playerPoints.text  = string.Format(POINTS_FORMAT, points.ToString());
             _background.color   = color;
+        }
+
+        public void DisablePlayer()
+        {
+            _background.enabled = false;
+            _playerPoints.enabled = false;
+            _playerNumber.enabled = false;
         }
     }
 }
