@@ -170,7 +170,6 @@ public class Child : MonoBehaviour
         // Actions to perform when reaching a destination
         if (
             destination != DestinationType.NONE && 
-            _navMeshAgent.hasPath &&
             _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance
         )
         {
