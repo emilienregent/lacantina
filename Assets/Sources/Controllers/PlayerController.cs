@@ -37,8 +37,13 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Déplacement du joueur
+#if ENABLE_KEYBOARD
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+#else
         float horizontal = Input.GetAxis("Horizontal_P" + joystickNumber.ToString());
         float vertical = Input.GetAxis("Vertical_P" + joystickNumber.ToString());
+#endif
 
         Move(horizontal, vertical);
 
@@ -70,7 +75,11 @@ public class PlayerController : MonoBehaviour
     // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
     private bool IsPressedAction(int button)
     {
+#if ENABLE_KEYBOARD
+        bool isPressed = Input.GetButtonDown("Action" + button.ToString() + "_Keyboard");
+#else
         bool isPressed = Input.GetButtonDown("Action" + button.ToString() + "_P" + joystickNumber.ToString());
+#endif
 
         return isPressed;
     }
