@@ -150,6 +150,9 @@ public class Child : MonoBehaviour
                 case DestinationType.START:
                     gameObject.SetActive(false);
                     break;
+
+                case DestinationType.CHAIR:
+                    break;
             }
 
             destination = DestinationType.NONE;
