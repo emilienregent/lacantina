@@ -21,17 +21,17 @@ namespace La.Cantina.UI
             _incident.SetActive(false);
         }
 
-        public void EnableTimer(bool enabled)
+        public void EnableSlider(bool enabled)
         {
             _slider.SetActive(enabled);
         }
 
-        public void EnableFeedback(string path, bool infinite = false)
+        public void EnableFeedback(string path, bool withSlider, bool infinite = false)
         {
             _icon.sprite = Resources.Load<Sprite>("Images/" + path);
             _canvas.enabled = true;
-            _slider.SetActive(false);
             _incident.SetActive(true);
+            _slider.SetActive(withSlider);
 
             if (infinite == false)
             {

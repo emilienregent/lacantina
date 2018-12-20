@@ -133,8 +133,8 @@ MonoBehaviour:
   _navMeshAgent: {fileID: 2602280271006570250}
   allowedSeating: {fileID: 0}
   _childCanvas: {fileID: 6697563775120409115}
-  m_Slider: {fileID: 4545072455078452437}
-  m_Slider_Foreground: {fileID: 4545072455033334342}
+  m_Slider: {fileID: 2771588156229601808}
+  m_Slider_Foreground: {fileID: 6700816379832447255}
   m_timer: 0
   m_waiting_timer: 0
   m_elapsedTime: 0
@@ -489,9 +489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca80d9cd46649643887d28c15c3cd7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4545072455078452437 stripped
+--- !u!114 &2771588156229601808 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3145982319836758620, guid: cf1e56568c673e1469743e359271a0ca,
+  m_CorrespondingSourceObject: {fileID: 3660645495961048217, guid: cf1e56568c673e1469743e359271a0ca,
     type: 3}
   m_PrefabInstance: {fileID: 1493947205094645385}
   m_PrefabAsset: {fileID: 0}
@@ -501,9 +501,9 @@ MonoBehaviour:
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4545072455033334342 stripped
+--- !u!114 &6700816379832447255 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3145982319785293007, guid: cf1e56568c673e1469743e359271a0ca,
+  m_CorrespondingSourceObject: {fileID: 5207715809456205726, guid: cf1e56568c673e1469743e359271a0ca,
     type: 3}
   m_PrefabInstance: {fileID: 1493947205094645385}
   m_PrefabAsset: {fileID: 0}

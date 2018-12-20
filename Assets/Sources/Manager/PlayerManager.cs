@@ -27,6 +27,8 @@ namespace La.Cantina.Manager
 
         public int playerNumber { get { return _playerNumber; } }
 
+        public Color playerColor { get { return _playerMaterial.color; } }
+
         private void Awake()
         {
             if (GameManager.instance.isReady == false)

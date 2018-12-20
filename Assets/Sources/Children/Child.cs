@@ -88,7 +88,7 @@ public class Child : MonoBehaviour
     public void Awake()
     {
         m_Slider.value = 0f;
-        m_Slider_Foreground.color = Color.green;
+        m_Slider_Foreground.color = _playerManager.playerColor;
 
         _capsuleCollider = GetComponent<CapsuleCollider>();
 
@@ -214,7 +214,8 @@ public class Child : MonoBehaviour
             m_isEating = true;
             m_elapsedTime = 0f;
             m_currentVegetable = vegetable;
-            _childCanvas.EnableTimer(true);
+            _childCanvas.EnableSlider(true);
+            _childCanvas.EnableFeedback("Food/food_" + m_currentVegetable.name.ToLower(), true, true);
         }
 
         return m_currentIncident == null;
@@ -231,7 +232,8 @@ public class Child : MonoBehaviour
             m_Slider.value      = 0;
             m_timer             = 0;
             m_waiting_timer     = 0;
-            _childCanvas.EnableTimer(false);
+
+            _childCanvas.DisableFeedback();
         }
     }
 
@@ -285,7 +287,9 @@ public class Child : MonoBehaviour
         {
             m_isEating = true;
             m_elapsedTime = 0f;
-            m_Slider_Foreground.color = Color.green;
+            m_Slider_Foreground.color = _playerManager.playerColor;
+            _childCanvas.EnableSlider(true);
+            _childCanvas.EnableFeedback("Food/food_" + m_currentVegetable.name.ToLower(), true, true);
         }
         
         return result;
@@ -306,9 +310,8 @@ public class Child : MonoBehaviour
             {
                 m_currentIncident = pair.Value;
                 m_isEating = false;
-                m_Slider_Foreground.color = Color.red;
 
-                _childCanvas.EnableFeedback("Incident/incident_" + m_currentIncident.name.ToLower(), true);
+                _childCanvas.EnableFeedback("Incident/incident_" + m_currentIncident.name.ToLower(), false,  true);
                 AudioClip incidentClip = m_IncidentsSFX[UnityEngine.Random.Range(0, m_IncidentsSFX.Count)];
                 m_AudioSourceSFX.clip = incidentClip;
                 m_AudioSourceSFX.Play();
