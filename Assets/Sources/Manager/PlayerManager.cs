@@ -11,11 +11,17 @@ namespace La.Cantina.Manager
         [SerializeField] private GameObject     _playerPrefab   = null;
 
         private Spawner     _spawner        = null;
+        private Seating     _seating        = null;
         private bool        _fullSpawned    = false;
         private GameObject  _currentPlayer  = null;
 
         [SerializeField]
         private int _fullSpawnDelay = 15;
+
+        private int _score = 0;
+        public int score { get { return _score; } }
+
+        public int playerNumber { get { return _playerNumber; } }
 
         private void Awake()
         {
@@ -49,12 +55,12 @@ namespace La.Cantina.Manager
                 Debug.LogError(string.Format("No spawner found for player {0}", _playerNumber));
 
             _spawner = spawners[0].GetComponent<Spawner>();
-            Seating seating = seatings[0].GetComponent<Seating>();
+            _seating = seatings[0].GetComponent<Seating>();
 
             for (int i = 0; i < _spawner.children.Length; ++i)
             {
-                _spawner.children[i].allowedSeating = seating;
-                _spawner.children[i].InitForPlayer(_playerNumber);
+                _spawner.children[i].allowedSeating = _seating;
+                _spawner.children[i].InitForPlayer(this);
             }
 
             AddChild();
@@ -78,6 +84,13 @@ namespace La.Cantina.Manager
                 if (child != null)
                     child.GoSit();
             }
+        }
+
+        public void UpdateScore(int points, bool positive = true)
+        {
+            _score += positive ? points : -points;
+
+            _seating.playerTableCanvas.UpdateScore(points, positive);
         }
     }
 }

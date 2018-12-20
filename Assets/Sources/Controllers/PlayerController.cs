@@ -18,9 +18,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip m_ResponseClipFail;
     public AudioSource m_AudioSourceSFX;
 
-    private int _score = 0;
-    public int score { get { return _score; } }
-
     private VegetableConfig _vegetableCarried = null;
 
     [SerializeField] private MeshRenderer _body = null;
@@ -152,8 +149,6 @@ public class PlayerController : MonoBehaviour
         if (_childInRange.m_currentIncident != null)
         {
             bool result = _childInRange.SolveIncident(responseId);
-
-            _score = result ? GameManager.instance.responseIdToConfig[responseId].points : -GameManager.instance.responseIdToConfig[responseId].points;
 
             m_AudioSourceSFX.clip = result ? m_ResponseClipSuccess : m_ResponseClipFail;
             m_AudioSourceSFX.Play();
