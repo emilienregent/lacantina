@@ -1,5 +1,6 @@
 ﻿using La.Cantina.Data;
 using La.Cantina.Enums;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ namespace La.Cantina.UI
 {
     public class StartController : MonoBehaviour
     {
+        private const float TIME_TO_FADE_OUT = 2;
         private const int TIME_BEFORE_START = 3;
         private float _elapsedTime = 0;
         private int _timerCountDown = TIME_BEFORE_START;
@@ -26,9 +28,12 @@ namespace La.Cantina.UI
         public List<StartPlayerController> m_Players;
         public SettingsScriptableObject settings;
 
+        private AudioSource _audioSource;
+
         private void Start()
         {
             HideHowToPlayScreen();
+            _audioSource = GetComponent<AudioSource>();
 
             // Detect players plugged. Then increment _playersCount accordingly
             for (int i = 0; i < Input.GetJoystickNames().Length; ++i)
@@ -79,6 +84,12 @@ namespace La.Cantina.UI
                         SceneManager.LoadScene((int)SceneEnum.GAME);
                     }
                 }
+
+                if (_timerCountDown < TIME_BEFORE_START - 1)
+                {
+                    FadeOutMusic();
+                }
+
             } else
             {
                 _elapsedTime = 0;
@@ -112,6 +123,14 @@ namespace La.Cantina.UI
         {
             m_PlayersReadyRoot.gameObject.SetActive(false);
             m_HowToPlayRoot.gameObject.SetActive(true);
+        }
+
+        public void FadeOutMusic()
+        {
+            if(_audioSource.volume > 0)
+            {
+                _audioSource.volume = _audioSource.volume - (Time.deltaTime / TIME_TO_FADE_OUT);
+            }
         }
     }
 }
