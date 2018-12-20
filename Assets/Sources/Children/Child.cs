@@ -13,7 +13,8 @@ public class Child : MonoBehaviour
     {
         NONE,
         CHAIR,
-        START
+        START,
+        RANDOM
     }
 
     [SerializeField]
@@ -23,19 +24,24 @@ public class Child : MonoBehaviour
     public Seating allowedSeating = null;
 
     private PlayerManager _playerManager = null;
+    private CapsuleCollider _capsuleCollider = null;
 
     [SerializeField]
     private ChildCanvasController _childCanvas = null;
 
     private Seat currentSeat = null;
+    private bool m_isOutOfTable = true;
+    public bool isOutOfTable { get { return m_isOutOfTable; } }
 
     [SerializeField] private Slider  m_Slider = null;
     [SerializeField] private Image m_Slider_Foreground = null;
 
     public  int     m_timer         = 0;
+    public  int     m_waiting_timer = 0;
     public  float   m_elapsedTime   = 0f;
     public  bool    m_isEating      = false;
     public  float   timeToIncidentModifier = 0;
+    public  int     timeBeforeLeaving = 10;
     public  DestinationType destination = DestinationType.NONE;
 
     public IncidentConfig m_currentIncident = null;
@@ -47,6 +53,7 @@ public class Child : MonoBehaviour
     // Claim a seat in the assigned set and move to its position.
     public void GoSit()
     {
+        _capsuleCollider.isTrigger = true;
         if (currentSeat == null) 
             currentSeat = allowedSeating.GetEmptySeat();
 
@@ -77,6 +84,8 @@ public class Child : MonoBehaviour
     {
         m_Slider.value = 0f;
         m_Slider_Foreground.color = Color.green;
+
+        _capsuleCollider = GetComponent<CapsuleCollider>();
 
         if (GameManager.instance.isReady == false)
         {
@@ -137,6 +146,23 @@ public class Child : MonoBehaviour
             }
         }
 
+        // If the kid is waiting for food at table
+        if(m_isEating == false && m_isOutOfTable == false)
+        {
+             m_elapsedTime += Time.deltaTime;
+            if (m_elapsedTime >= 1f)
+            {
+                m_elapsedTime = m_elapsedTime % 1f;
+                m_waiting_timer++;
+
+                if(m_waiting_timer > timeBeforeLeaving)
+                {
+                    LeaveSeat();
+                }
+            }
+        }
+
+
         // Actions to perform when reaching a destination
         if (
             destination != DestinationType.NONE && 
@@ -151,6 +177,13 @@ public class Child : MonoBehaviour
                     break;
 
                 case DestinationType.CHAIR:
+                    Debug.Log("est arrivé à table");
+                    m_isOutOfTable = false;
+                    _capsuleCollider.isTrigger = true;
+                    break;
+
+                case DestinationType.RANDOM:
+                    _capsuleCollider.isTrigger = false;
                     break;
             }
 
@@ -163,6 +196,11 @@ public class Child : MonoBehaviour
     public bool GiveFood(VegetableConfig vegetable)
     {
         Debug.Log("Give Food : " + vegetable.name);
+
+        if(m_isOutOfTable == true)
+        {
+            return false;
+        }
 
         if(m_currentIncident == null)
         {
@@ -185,6 +223,7 @@ public class Child : MonoBehaviour
             m_currentVegetable  = null;
             m_Slider.value      = 0;
             m_timer             = 0;
+            m_waiting_timer     = 0;
             _childCanvas.EnableTimer(false);
         }
     }
@@ -193,6 +232,7 @@ public class Child : MonoBehaviour
     // If he has vegetable to eat, he starts to eat again
     public bool SolveIncident(uint responseId)
     {
+
         ResponseConfig response = GameManager.instance.responseIdToConfig[responseId];
 
         Debug.Log("Solve incident with: " + response.name);
@@ -267,4 +307,40 @@ public class Child : MonoBehaviour
             count++;
         }
     }
+
+    // Leave the seat and go to random point
+    private void LeaveSeat()
+    {
+        System.Random rnd = new System.Random();
+        
+        int x1 = rnd.Next(-95, 95);
+        int z1 = 0;
+        bool isPositiveZ;
+        if (x1 < 80 || x1 > -80)
+        {
+            z1 = rnd.Next(80, 95);
+            isPositiveZ = rnd.NextDouble() >= 0.5;Debug.Log(isPositiveZ);
+            if (isPositiveZ == false)
+            {
+                z1 = -z1;
+            }
+        } else
+        {
+            z1 = rnd.Next(-95, 95);
+        }
+        float x = (float)x1 / 10;
+        float z = (float)z1 / 10;
+
+
+        Vector3 randomPoint = new Vector3(x, 0, z);
+
+        m_isEating = false;
+        m_isOutOfTable = true;
+
+        _navMeshAgent.SetDestination(randomPoint);
+        m_waiting_timer = 0;
+
+        destination = DestinationType.RANDOM;
+    }
+
 }

@@ -133,13 +133,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navMeshAgent: {fileID: 2602280271006570250}
   allowedSeating: {fileID: 0}
-  playerNumber: 0
   _childCanvas: {fileID: 6697563775120409115}
   m_Slider: {fileID: 4545072455078452437}
   m_Slider_Foreground: {fileID: 4545072455033334342}
   m_timer: 0
+  m_waiting_timer: 0
   m_elapsedTime: 0
   m_isEating: 0
+  m_isOutOfTable: 0
   timeToIncidentModifier: 0
   destination: 0
   m_IncidentsSFX:
