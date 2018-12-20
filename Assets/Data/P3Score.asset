@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ffa21e1c003dd99459fafe91b4f53cf3, type: 3}
   m_Name: P3Score
   m_EditorClassIdentifier: Assembly-CSharp:La.Cantina.Data:ScoreScriptableObject
   value: 0
