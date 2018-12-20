@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -277,7 +277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -188}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: -800, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467970083
@@ -532,6 +532,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029837, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.999982
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.y
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27315e3e5c277474d8510a219f3c6841, type: 3}
 --- !u!224 &985368511 stripped
@@ -681,7 +706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -404}
+  m_AnchoredPosition: {x: 960, y: -432}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1290361163
@@ -816,7 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9921569, g: 0.9568628, b: 0.882353, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -997,6 +1022,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029837, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.y
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27315e3e5c277474d8510a219f3c6841, type: 3}
 --- !u!224 &1410638389 stripped
@@ -1051,7 +1101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -245}
+  m_AnchoredPosition: {x: 0, y: -236}
   m_SizeDelta: {x: 436, y: 233}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540566174
@@ -1317,6 +1367,31 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029837, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.999982
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.y
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27315e3e5c277474d8510a219f3c6841, type: 3}
 --- !u!224 &1816359285 stripped
@@ -1371,7 +1446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 30, y: -30}
+  m_AnchoredPosition: {x: 68, y: -44}
   m_SizeDelta: {x: 296, y: 97}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1918999716
@@ -1587,6 +1662,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026909, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8043358426644353509, guid: 27315e3e5c277474d8510a219f3c6841,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1606,6 +1686,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426644353509, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029837, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426644353510, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426305026910, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_EffectDistance.y
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27315e3e5c277474d8510a219f3c6841, type: 3}
