@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 38734584}
   - component: {fileID: 38734583}
   - component: {fileID: 38734587}
+  - component: {fileID: 38734588}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -241,6 +242,25 @@ MonoBehaviour:
   - {r: 0.9607844, g: 0.8705883, b: 0.3529412, a: 1}
   - {r: 0.41176474, g: 0.854902, b: 0.6784314, a: 1}
   _settings: {fileID: 11400000, guid: f819de34b28be3d4587f2731afca5fca, type: 2}
+--- !u!95 &38734588
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38734582}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0de24cefb4f184d7ea485ad12a5618da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &467970081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,11 +1717,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -4
       objectReference: {fileID: 0}
-    - target: {fileID: 8043358426644353510, guid: 27315e3e5c277474d8510a219f3c6841,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8043358427403029838, guid: 27315e3e5c277474d8510a219f3c6841,
         type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -1721,6 +1736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_EffectDistance.y
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043358426644353510, guid: 27315e3e5c277474d8510a219f3c6841,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27315e3e5c277474d8510a219f3c6841, type: 3}
