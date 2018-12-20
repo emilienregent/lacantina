@@ -130,7 +130,14 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                ManageIncident(RESPONSE_FORCE);
+                if (_childInRange.isOutOfTable == true && _childInRange.destination == Child.DestinationType.NONE)
+                {
+                    _childInRange.GoSit();
+                }
+                else
+                {
+                    ManageIncident(RESPONSE_FORCE);
+                }
             }
         }
         else if(IsPressedAction(2) == true)
