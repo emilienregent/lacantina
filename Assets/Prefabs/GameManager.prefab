@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNumber: 1
-  _playerMaterial: {fileID: 2100000, guid: 1d3c62c643c693e4daea9c45eb4fda82, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: de2ba94af5b38a64ab167a9da3bb5010, type: 2}
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _spawnPosition: {x: -3, y: 1, z: -0.5}
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNumber: 2
-  _playerMaterial: {fileID: 2100000, guid: 374a8fc6b0bddad4f8f5a512fa3fa2bc, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: 1d3c62c643c693e4daea9c45eb4fda82, type: 2}
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _spawnPosition: {x: 0.5, y: 0, z: 3}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNumber: 3
-  _playerMaterial: {fileID: 2100000, guid: d1a47f21152c418419800d931c87f297, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: 9c5ef11e4d355424aaff0ded3ef63029, type: 2}
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _spawnPosition: {x: -3, y: 0, z: -0.5}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNumber: 4
-  _playerMaterial: {fileID: 2100000, guid: 9c5ef11e4d355424aaff0ded3ef63029, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: 374a8fc6b0bddad4f8f5a512fa3fa2bc, type: 2}
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _spawnPosition: {x: 0.5, y: 0, z: -3}
