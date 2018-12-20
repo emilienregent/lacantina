@@ -70,5 +70,10 @@ namespace La.Cantina.Manager
                 TimerEnded?.Invoke(this, _elapsedTime);
             }
         }
+
+        public static void Destroy()
+        {
+            _instance = null;
+        }
     }
 }

@@ -53,5 +53,10 @@ namespace La.Cantina.Controller
         {
             SceneManager.LoadScene((int)SceneEnum.END);
         }
+
+        private void OnDestroy()
+        {
+            GameManager.Destroy();
+        }
     }
 }
