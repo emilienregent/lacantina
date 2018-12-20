@@ -3,6 +3,7 @@
 public class Seat : MonoBehaviour
 {
     public bool isClaimed = false;
+    public Transform LookAtWhenSitting = null;
 
     public void OnDrawGizmos()
     {

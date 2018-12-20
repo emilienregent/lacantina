@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     private void Update()
-
     {
 
         if (_childInRange == null && IsPressedAction(2) == true && _vegetableCarried != null)
