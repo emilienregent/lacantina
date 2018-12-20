@@ -41,10 +41,10 @@ namespace La.Cantina.UI
 
         public void InitPlayer(int id, StartController controller)
         {
-            m_PlayerID = id;
-            m_JoystickNumber = m_PlayerID + 1;
-            m_IsInitialized = true;
-            m_StartController = controller;
+            m_PlayerID          = id;
+            m_JoystickNumber    = m_PlayerID + 1;
+            m_IsInitialized     = true;
+            m_StartController   = controller;
         }
 
         // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
