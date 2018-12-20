@@ -167,7 +167,6 @@ public class Child : MonoBehaviour
             }
         }
 
-
         // Actions to perform when reaching a destination
         if (
             destination != DestinationType.NONE && 
@@ -241,7 +240,7 @@ public class Child : MonoBehaviour
     // If he has vegetable to eat, he starts to eat again
     public bool SolveIncident(uint responseId)
     {
-
+        bool result = false;
         ResponseConfig response = GameManager.instance.responseIdToConfig[responseId];
 
         Debug.Log("Solve incident with: " + response.name);
@@ -250,7 +249,9 @@ public class Child : MonoBehaviour
         {
             UnityEngine.Assertions.Assert.IsTrue(response.incidentIdToResult.ContainsKey(m_currentIncident.id), "Can't find result for response " + response.name + " and " + m_currentIncident.name);
 
-            if(response.incidentIdToResult[m_currentIncident.id] == false)
+            result = response.incidentIdToResult[m_currentIncident.id];
+
+            if (result == false)
             {
 
                 Debug.Log("Wrong response to incident: " + response.name);
@@ -263,16 +264,20 @@ public class Child : MonoBehaviour
                     _playerManager.UpdateScore(response.points, false);
                     return false;
                 }
+                else
+                {
+                    timeToIncidentModifier = -response.time;
+                }
 
-            } else
+            }
+            else
             {
-                timeToIncidentModifier = response.time;
                 Debug.Log("bonus " + response.time);
-                _playerManager.UpdateScore(response.points, false);
-                return false;
+                timeToIncidentModifier = response.time;
             }
 
             _childCanvas.DisableFeedback();
+            _playerManager.UpdateScore(response.points, result);
         }
 
         m_currentIncident = null;
@@ -283,9 +288,8 @@ public class Child : MonoBehaviour
             m_elapsedTime = 0f;
             m_Slider_Foreground.color = Color.green;
         }
-
-        _playerManager.UpdateScore(response.points, true);
-        return true;
+        
+        return result;
     }
 
     // Start a random incident
