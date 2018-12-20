@@ -152,7 +152,7 @@ public class Child : MonoBehaviour
         }
 
         // If the kid is waiting for food at table
-        if(m_isEating == false && m_isOutOfTable == false)
+        if(m_isEating == false && m_isOutOfTable == false && m_currentIncident == null)
         {
              m_elapsedTime += Time.deltaTime;
             if (m_elapsedTime >= 1f)
@@ -295,6 +295,7 @@ public class Child : MonoBehaviour
         timeToIncidentModifier = 0;
         int rand = UnityEngine.Random.Range(0, GameManager.instance.incidentIdToConfig.Keys.Count);
         int count = 0;
+        m_waiting_timer = 0;
 
         foreach (KeyValuePair<uint, IncidentConfig> pair in GameManager.instance.incidentIdToConfig)
         {
