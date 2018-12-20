@@ -7,9 +7,16 @@ namespace La.Cantina.UI
 {
     public class Timer : MonoBehaviour
     {
-        private const string TIMER_FORMAT = "{0}:{1}s";
+        private const string    TIMER_FORMAT    = "{0}:{1}s";
+        private const int       TIME_LIMIT      = 15;
 
-        [SerializeField] private Text _timerText = null;
+        [SerializeField] private Text       _timerText  = null;
+        [SerializeField] private Animator   _animator   = null;
+
+        private void Awake()
+        {
+            _timerText.enabled = false;
+        }
 
         private void Start()
         {
@@ -39,6 +46,11 @@ namespace La.Cantina.UI
             int secondes    = time % 60;
 
             _timerText.text = string.Format(TIMER_FORMAT, minutes.ToString("00"), secondes.ToString("00"));
+
+            if (time <= TIME_LIMIT)
+            {
+                _animator.SetBool("IsEnding", true);
+            }
         }
     }
 }
