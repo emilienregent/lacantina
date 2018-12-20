@@ -12,6 +12,7 @@ namespace La.Cantina.UI
 
         [SerializeField] private Canvas _canvas = null;
         [SerializeField] private TMPro.TextMeshProUGUI _points = null;
+        [SerializeField] private Animation _animation = null;
 
         private void Awake()
         {
@@ -20,8 +21,15 @@ namespace La.Cantina.UI
 
         public void UpdateScore(int points, bool positive = true)
         {
+            _points.text    = positive ? string.Format(POINTS_POSITIVE_FORMAT, points) : string.Format(POINTS_NEGATIVE_FORMAT, points);
             _canvas.enabled = true;
-            _points.text = positive ? string.Format(POINTS_POSITIVE_FORMAT, points) : string.Format(POINTS_NEGATIVE_FORMAT, points);
+
+            if (_animation.isPlaying == true)
+            {
+                _animation.Stop();
+            }
+
+            _animation.Play();
 
             StartCoroutine("DisableScoreAfterDelay");
         }

@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 6263712851217421264}
   _points: {fileID: 2330462923219987338}
+  _animation: {fileID: 4641198433937671165}
 --- !u!1 &2940169263567458776
 GameObject:
   m_ObjectHideFlags: 0
