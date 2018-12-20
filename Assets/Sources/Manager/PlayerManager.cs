@@ -1,4 +1,5 @@
-﻿using La.Cantina.Level;
+﻿using La.Cantina.Data;
+using La.Cantina.Level;
 using System;
 using UnityEngine;
 
@@ -14,13 +15,14 @@ namespace La.Cantina.Manager
         private Seating     _seating        = null;
         private bool        _fullSpawned    = false;
         private GameObject  _currentPlayer  = null;
-        public  Vector3     _spawnPosition  = Vector3.zero;
+        private Vector3     _spawnPosition  = Vector3.zero;
 
         [SerializeField]
         private int _fullSpawnDelay = 15;
 
-        private int _score = 0;
-        public int score { get { return _score; } }
+        [SerializeField]
+        private ScoreScriptableObject _score = null;
+        public int score { get { return _score.value; } }
 
         public int playerNumber { get { return _playerNumber; } }
 
@@ -37,16 +39,7 @@ namespace La.Cantina.Manager
 
         private void OnGameInitialized(object sender, EventArgs eventArgs)
         {
-            // Spawn Player
-            if (_playerNumber <= GameManager.instance.playerCount)
-            {
-                _currentPlayer = GameObject.Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
-                _currentPlayer.name = "P" + _playerNumber;
-
-                _currentPlayer.GetComponent<PlayerController>().Initialize(_playerMaterial);
-            }
-
-            // Spawn Children
+            // Get Stuff from the scene
             GameObject[] spawners = GameObject.FindGameObjectsWithTag(string.Format("SpawnerPlayer{0}", _playerNumber));
             GameObject[] seatings = GameObject.FindGameObjectsWithTag(string.Format("SeatingPlayer{0}", _playerNumber));
 
@@ -59,18 +52,29 @@ namespace La.Cantina.Manager
             _spawner = spawners[0].GetComponent<Spawner>();
             _seating = seatings[0].GetComponent<Seating>();
 
-            for (int i = 0; i < _spawner.children.Length; ++i)
+            // Spawn Player and a child
+            if (_playerNumber <= GameManager.instance.playerCount)
             {
-                _spawner.children[i].allowedSeating = _seating;
-                _spawner.children[i].InitForPlayer(this);
+                _currentPlayer = GameObject.Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
+                _currentPlayer.name = "P" + _playerNumber;
+
+                _currentPlayer.GetComponent<PlayerController>().Initialize(_playerMaterial);
+
+                for (int i = 0; i < _spawner.children.Length; ++i)
+                {
+                    _spawner.children[i].allowedSeating = _seating;
+                    _spawner.children[i].InitForPlayer(this);
+                }
+
+                AddChild();
             }
 
-            AddChild();
+            _score.value = 0;
         }
 
         private void OnTimerUpdated(object sender, int elapsedTime)
         {
-            if (!_fullSpawned && elapsedTime > _fullSpawnDelay)
+            if (_playerNumber <= GameManager.instance.playerCount && !_fullSpawned && elapsedTime > _fullSpawnDelay)
             {
                 AddChild(GameManager.instance.currentLevelConfig.children_per_player - 1);
                 _fullSpawned = true;
@@ -84,7 +88,8 @@ namespace La.Cantina.Manager
 
         private void OnTimerEnded(object sender, int elapsedTime)
         {
-            _spawner.ReturnAllToStart();
+            if (_playerNumber <= GameManager.instance.playerCount)
+                _spawner.ReturnAllToStart();
         }
 
         public void AddChild(int number = 1)
@@ -100,7 +105,7 @@ namespace La.Cantina.Manager
 
         public void UpdateScore(int points, bool positive = true)
         {
-            _score += positive ? points : -points;
+            _score.value += positive ? points : -points;
 
             _seating.playerTableCanvas.UpdateScore(points, positive);
         }

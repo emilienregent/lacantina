@@ -64,6 +64,7 @@ MonoBehaviour:
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _fullSpawnDelay: 15
+  _score: {fileID: 11400000, guid: 47b5cabcfffbcad4d80cee2dd23c49ab, type: 2}
 --- !u!114 &6322243566879682135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +82,7 @@ MonoBehaviour:
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _fullSpawnDelay: 15
+  _score: {fileID: 11400000, guid: 55d945c637a08d04aa4de1754b0df64f, type: 2}
 --- !u!114 &6377389212705111915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +100,7 @@ MonoBehaviour:
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _fullSpawnDelay: 15
+  _score: {fileID: 11400000, guid: c1d48022d14d0694c8acd9c061b228b4, type: 2}
 --- !u!114 &452711257087177461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +118,4 @@ MonoBehaviour:
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
   _fullSpawnDelay: 15
+  _score: {fileID: 11400000, guid: 3411015ed631e9749a24ca1cc9003cfa, type: 2}
