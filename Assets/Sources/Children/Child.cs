@@ -177,13 +177,16 @@ public class Child : MonoBehaviour
 
     private void EndMeal()
     {
-        _playerManager.UpdateScore(m_currentVegetable.points, true);
+        if (m_currentVegetable != null)
+        {
+            _playerManager.UpdateScore(m_currentVegetable.points, true);
 
-        m_isEating          = false;
-        m_currentVegetable  = null;
-        m_Slider.value      = 0;
-        m_timer             = 0;
-        _childCanvas.EnableTimer(false);
+            m_isEating          = false;
+            m_currentVegetable  = null;
+            m_Slider.value      = 0;
+            m_timer             = 0;
+            _childCanvas.EnableTimer(false);
+        }
     }
 
     // Solve an incident with a kid

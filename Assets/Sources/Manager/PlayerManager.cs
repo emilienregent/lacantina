@@ -76,9 +76,10 @@ namespace La.Cantina.Manager
                 _fullSpawned = true;
             }
 
-            //debug
+#if DEBUG_LEAVE
             if (elapsedTime == 20)
                 _spawner.ReturnAllToStart();
+#endif
         }
 
         private void OnTimerEnded(object sender, int elapsedTime)
