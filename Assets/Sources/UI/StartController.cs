@@ -19,12 +19,17 @@ namespace La.Cantina.UI
         [HideInInspector]
         public int _playersReady = 0;
 
+        public GameObject m_HowToPlayRoot;
+        public GameObject m_PlayersReadyRoot;
+
         public Text m_TimerText;
         public List<StartPlayerController> m_Players;
         public SettingsScriptableObject settings;
 
         private void Start()
         {
+            HideHowToPlayScreen();
+
             // Detect players plugged. Then increment _playersCount accordingly
             for (int i = 0; i < Input.GetJoystickNames().Length; ++i)
             {
@@ -88,6 +93,7 @@ namespace La.Cantina.UI
             if(_playersReady == _playersCount)
             {
                 m_TimerText.text = _timerCountDown.ToString();
+                ShowHowToPlayScreen();
             }
         }
 
@@ -95,6 +101,17 @@ namespace La.Cantina.UI
         {
             _playersReady--;
             m_TimerText.text = _defaultTimerText;
+        }
+
+        public void HideHowToPlayScreen()
+        {
+            m_HowToPlayRoot.gameObject.SetActive(false);
+        }
+
+        public void ShowHowToPlayScreen()
+        {
+            m_PlayersReadyRoot.gameObject.SetActive(false);
+            m_HowToPlayRoot.gameObject.SetActive(true);
         }
     }
 }

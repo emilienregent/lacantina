@@ -49,7 +49,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Logo
+    path: PlayersReadyRoot/Logo
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -74,7 +74,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Players/Background
+    path: PlayersReadyRoot/Players/Background
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -160,7 +160,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Players/Row
+    path: PlayersReadyRoot/Players/Row
   m_FloatCurves:
   - curve:
       serializedVersion: 2
@@ -187,7 +187,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Players/Row
+    path: PlayersReadyRoot/Players/Row
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -289,7 +289,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Logo
+    path: PlayersReadyRoot/Logo
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -326,7 +326,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Logo
+    path: PlayersReadyRoot/Logo
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -363,7 +363,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Logo
+    path: PlayersReadyRoot/Logo
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -391,7 +391,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Players/Background
+    path: PlayersReadyRoot/Players/Background
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -419,7 +419,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Players/Background
+    path: PlayersReadyRoot/Players/Background
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -447,7 +447,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Players/Background
+    path: PlayersReadyRoot/Players/Background
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -586,7 +586,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Players/Row
+    path: PlayersReadyRoot/Players/Row
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -632,7 +632,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: Players/Row
+    path: PlayersReadyRoot/Players/Row
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -687,7 +687,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: Players/Row
+    path: PlayersReadyRoot/Players/Row
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -742,7 +742,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: Players/Row
+    path: PlayersReadyRoot/Players/Row
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []
