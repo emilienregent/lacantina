@@ -64,7 +64,7 @@ public class Child : MonoBehaviour
         _navMeshAgent.SetDestination(startPos);
         destination = DestinationType.START;
         m_currentIncident = null;
-        endMeal();
+        EndMeal();
     }
 
     // Initialize for the set player
