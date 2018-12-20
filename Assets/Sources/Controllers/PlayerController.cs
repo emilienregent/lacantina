@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 0.2f;
+    public  float speed = 10f;
+    public float speedRotation = 0.15f;
     Child _childInRange = null;
 
     private const uint RESPONSE_FORCE = 236373571;
@@ -25,16 +26,28 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private MeshRenderer _body = null;
     [SerializeField] private PlayerCanvasController _playerCanvas   = null;
+    [SerializeField] private Rigidbody _rigidBody = null;
 
     public int joystickNumber;
 
     public void Initialize(Material material)
     {
         _body.material = material;
+        _rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     private void Update()
+
+    {
+
+        if (_childInRange == null && IsPressedAction(2) == true && _vegetableCarried != null)
+        {
+            ThrowFood();
+        }
+    }
+
+    private void FixedUpdate()
     {
         // Déplacement du joueur
 #if ENABLE_KEYBOARD
@@ -46,11 +59,6 @@ public class PlayerController : MonoBehaviour
 #endif
 
         Move(horizontal, vertical);
-
-        if (_childInRange == null && IsPressedAction(2) == true && _vegetableCarried != null)
-        {
-            ThrowFood();
-        }
     }
 
     // Déplacements
@@ -60,15 +68,17 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3();
 
         // Récupération des touches haut et bas
-        move.z = vertical * speed;
+        move.z = vertical;
 
         //Récupération des touches gauche et droite
-        move.x = horizontal * speed;
+        move.x = horizontal;
 
-        transform.position += move;
+        move = move.normalized * speed * Time.deltaTime;
+
+        _rigidBody.MovePosition(transform.position + move);
         if (move != Vector3.zero) {
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(move), 0.15F);
+            _rigidBody.MoveRotation(Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(move), speedRotation));
         }
     }
 
