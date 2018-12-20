@@ -13,10 +13,17 @@ namespace La.Cantina.UI
         [SerializeField] private Canvas _canvas = null;
         [SerializeField] private TMPro.TextMeshProUGUI _points = null;
 
+        private void Awake()
+        {
+            DisableScore();
+        }
+
         public void UpdateScore(int points, bool positive = true)
         {
             _canvas.enabled = true;
             _points.text = positive ? string.Format(POINTS_POSITIVE_FORMAT, points) : string.Format(POINTS_NEGATIVE_FORMAT, points);
+
+            StartCoroutine("DisableScoreAfterDelay");
         }
 
         private IEnumerator DisableScoreAfterDelay()
@@ -26,7 +33,7 @@ namespace La.Cantina.UI
             DisableScore();
         }
 
-        public void DisableScore()
+        private void DisableScore()
         {
             _canvas.enabled = false;
         }
