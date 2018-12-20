@@ -95,7 +95,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Children")
         {
-            other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Empty");
+            // TODO : Display feedback when child is selectionnable
+            /*other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Empty");*/
 
             _childInRange = null;
         }
@@ -105,7 +106,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Children" && other.transform.parent.gameObject.tag == "SpawnerPlayer" + _joystickNumber.ToString())
         {
-            other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Cyan");
+            // TODO : Display feedback when child is selectionnable
+            /*other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Cyan");*/
 
             _childInRange = other.GetComponent<Child>();
 
