@@ -11,7 +11,7 @@ namespace La.Cantina.UI
         private const string POINTS_NEGATIVE_FORMAT = "-{0}";
 
         [SerializeField] private Canvas _canvas = null;
-        [SerializeField] private Text _points = null;
+        [SerializeField] private TMPro.TextMeshProUGUI _points = null;
 
         public void UpdateScore(int points, bool positive = true)
         {

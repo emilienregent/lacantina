@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 8393962672361916853}
   - component: {fileID: 6187224996653929845}
   - component: {fileID: 4771949378049658985}
+  - component: {fileID: 6151524081488878160}
   m_Layer: 9
   m_Name: PlayerTableCanvas
   m_TagString: Untagged
@@ -273,6 +274,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UseRelativeRotation: 1
+--- !u!114 &6151524081488878160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177010853999392282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfacd86cdbd4c8744a13de19014cab03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvas: {fileID: 6263712851217421264}
+  _points: {fileID: 2330462923219987338}
 --- !u!1 &2940169263567458776
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +354,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6db2a83f966da1e45a379bb2abf9743b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
