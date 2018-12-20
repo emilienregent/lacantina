@@ -14,6 +14,7 @@ namespace La.Cantina.Manager
         private Seating     _seating        = null;
         private bool        _fullSpawned    = false;
         private GameObject  _currentPlayer  = null;
+        public  Vector3     _spawnPosition  = Vector3.zero;
 
         [SerializeField]
         private int _fullSpawnDelay = 15;
@@ -38,7 +39,7 @@ namespace La.Cantina.Manager
             // Spawn Player
             if (_playerNumber <= GameManager.instance.playerCount)
             {
-                _currentPlayer = GameObject.Instantiate(_playerPrefab);
+                _currentPlayer = GameObject.Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
                 _currentPlayer.name = "P" + _playerNumber;
 
                 _currentPlayer.GetComponent<PlayerController>().Initialize(_playerMaterial);
