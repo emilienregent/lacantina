@@ -9,6 +9,13 @@ using La.Cantina.UI;
 
 public class Child : MonoBehaviour
 {
+    public enum DestinationType
+    {
+        NONE,
+        CHAIR,
+        START
+    }
+
     [SerializeField]
     private NavMeshAgent _navMeshAgent = null;
 
@@ -29,6 +36,7 @@ public class Child : MonoBehaviour
     public  float   m_elapsedTime   = 0f;
     public  bool    m_isEating      = false;
     public  float   timeToIncidentModifier = 0;
+    public  DestinationType destination = DestinationType.NONE;
 
     public IncidentConfig m_currentIncident = null;
     public VegetableConfig m_currentVegetable = null;
@@ -46,7 +54,17 @@ public class Child : MonoBehaviour
         {
             currentSeat.isClaimed = true;
             _navMeshAgent.SetDestination(currentSeat.transform.position);
+            destination = DestinationType.CHAIR;
         }
+    }
+
+    // End game scenario : Cancel everything and go to the position
+    public void CancelAndLeave(Vector3 startPos)
+    {
+        _navMeshAgent.SetDestination(startPos);
+        destination = DestinationType.START;
+        m_currentIncident = null;
+        endMeal();
     }
 
     // Initialize for the set player
@@ -117,6 +135,26 @@ public class Child : MonoBehaviour
                     StartIncident();
                 }
             }
+        }
+
+        // Actions to perform when reaching a destination
+        if (
+            destination != DestinationType.NONE && 
+            _navMeshAgent.hasPath &&
+            _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance
+        )
+        {
+            switch (destination)
+            {
+                case DestinationType.START:
+                    gameObject.SetActive(false);
+                    break;
+
+                case DestinationType.CHAIR:
+                    break;
+            }
+
+            destination = DestinationType.NONE;
         }
     }
 
