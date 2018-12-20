@@ -44,6 +44,8 @@ public class Child : MonoBehaviour
     public  int     timeBeforeLeaving = 10;
     public  DestinationType destination = DestinationType.NONE;
 
+    private Vector3 _lookAtWhenSitting = Vector3.zero;
+
     public IncidentConfig m_currentIncident = null;
     public VegetableConfig m_currentVegetable = null;
 
@@ -62,6 +64,9 @@ public class Child : MonoBehaviour
             currentSeat.isClaimed = true;
             _navMeshAgent.SetDestination(currentSeat.transform.position);
             destination = DestinationType.CHAIR;
+
+            _lookAtWhenSitting.x = currentSeat.LookAtWhenSitting.position.x;
+            _lookAtWhenSitting.z = currentSeat.LookAtWhenSitting.position.z;
         }
     }
 
@@ -180,6 +185,7 @@ public class Child : MonoBehaviour
                     Debug.Log("est arrivé à table");
                     m_isOutOfTable = false;
                     _capsuleCollider.isTrigger = true;
+                    _lookAtWhenSitting.y = transform.position.y;
                     break;
 
                 case DestinationType.RANDOM:
@@ -189,6 +195,9 @@ public class Child : MonoBehaviour
 
             destination = DestinationType.NONE;
         }
+
+        if (!m_isOutOfTable)
+            transform.LookAt(_lookAtWhenSitting);
     }
 
     // Give vegetable to a kid
