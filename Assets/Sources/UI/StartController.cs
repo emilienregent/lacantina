@@ -1,4 +1,5 @@
-﻿using La.Cantina.Enums;
+﻿using La.Cantina.Data;
+using La.Cantina.Enums;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,28 +21,38 @@ namespace La.Cantina.UI
 
         public Text m_TimerText;
         public List<StartPlayerController> m_Players;
+        public SettingsScriptableObject settings;
 
         private void Start()
         {
-
             // Detect players plugged. Then increment _playersCount accordingly
-            _playersCount = Input.GetJoystickNames().Length;
-
-            // 4 controllers max
-            int numberControllers = Mathf.Max(Input.GetJoystickNames().Length, m_Players.Count);
-            for(int i = 0; i < numberControllers; i++)
+            for (int i = 0; i < Input.GetJoystickNames().Length; ++i)
             {
-                StartPlayerController player = m_Players[i];
-                player.InitPlayer(i, this);
+                if (Input.GetJoystickNames()[0] != string.Empty)
+                {
+                    UnityEngine.Debug.Log("Assign Joystick '" + Input.GetJoystickNames()[0] + "' to player " + (i + 1));
+
+                    StartPlayerController player = m_Players[_playersCount];
+                    player.InitPlayer(i, this);
+
+                    _playersCount++;
+                }
+                else
+                {
+                    UnityEngine.Debug.Log("Joystick '" + i + "' is invalid and can't be use for players");
+                }
+
+                if (_playersCount >= m_Players.Count)
+                {
+                    break;
+                }
             }
         }
 
         private void Update()
         {
-
             if (_playersReady == _playersCount)
             {
-
                 // Each second
                 _elapsedTime += Time.deltaTime;
 
@@ -59,6 +70,7 @@ namespace La.Cantina.UI
                         m_TimerText.text = _startTimerText;
                     } else
                     {
+                        settings.numPlayers = _playersReady;
                         SceneManager.LoadScene((int)SceneEnum.GAME);
                     }
                 }

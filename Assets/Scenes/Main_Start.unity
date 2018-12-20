@@ -264,6 +264,7 @@ MonoBehaviour:
   - {fileID: 1657412197}
   - {fileID: 71439764}
   - {fileID: 1483821477}
+  settings: {fileID: 11400000, guid: f819de34b28be3d4587f2731afca5fca, type: 2}
 --- !u!95 &153251236
 Animator:
   serializedVersion: 3

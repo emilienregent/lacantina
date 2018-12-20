@@ -1,6 +1,8 @@
-﻿using La.Cantina.Types;
+﻿using La.Cantina.Data;
+using La.Cantina.Types;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace La.Cantina.Manager
 {
@@ -34,8 +36,8 @@ namespace La.Cantina.Manager
         private LevelConfig _currentLevelConfig = null;
         public LevelConfig currentLevelConfig { get { return _currentLevelConfig; } }
 
-        private int _playerCount = 1;
-        public int playerCount { get { return _playerCount; } }
+        private SettingsScriptableObject _settings = null;
+        public int playerCount { get { return _settings.numPlayers; } }
 
         public Dictionary<uint, VegetableConfig>    vegetableIdToConfig = null;
         public Dictionary<uint, IncidentConfig>     incidentIdToConfig  = null;
@@ -43,10 +45,11 @@ namespace La.Cantina.Manager
         public Dictionary<uint, LevelConfig>        levelIdToConfig     = null;
         public List<uint>                           levelIds            = null;
 
-        public void SetReady()
+        public void SetReady(SettingsScriptableObject settings)
         {
             uint levelIdSelected = levelIds[0];
 
+            _settings = settings;
             _currentLevelConfig = levelIdToConfig[levelIdSelected];
 
             _isReady = true;
