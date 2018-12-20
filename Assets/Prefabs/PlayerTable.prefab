@@ -102003,6 +102003,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 933737375363586294, guid: 6770ab3069cb2b54e98f2ba8585ef561,
+        type: 3}
+      propertyPath: _playerTableCanvas
+      value: 
+      objectReference: {fileID: 4600487139699423551}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6770ab3069cb2b54e98f2ba8585ef561, type: 3}
 --- !u!4 &3303719460597499289 stripped
@@ -102136,3 +102141,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7676011879141909359}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4600487139699423551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6151524081488878160, guid: 61371872e43607c408e10614dd414b36,
+    type: 3}
+  m_PrefabInstance: {fileID: 7676011879141909359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfacd86cdbd4c8744a13de19014cab03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
