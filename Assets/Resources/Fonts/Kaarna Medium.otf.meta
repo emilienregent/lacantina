@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: e24465700ac655041b2f63f6281d66de
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Kaarna
+  fontNames:
+  - Kaarna
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ef22f3d52e7231340be854e3ccd3e0fd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

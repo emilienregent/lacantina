@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using La.Cantina.UI;
+using UnityEngine;
 
 public class Seating : MonoBehaviour
 {
-    [SerializeField]
-    private Seat[] seats = null;
+    [SerializeField] private Seat[] seats = null;
+    [SerializeField] private PlayerTableCanvasController _playerTableCanvas = null;
+
+    public PlayerTableCanvasController playerTableCanvas { get { return _playerTableCanvas; } }
 
     private void ShuffleSeats()
     {

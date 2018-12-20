@@ -22,8 +22,7 @@ public class Child : MonoBehaviour
     [HideInInspector]
     public Seating allowedSeating = null;
 
-    [HideInInspector]
-    public int playerNumber = 0;
+    private PlayerManager _playerManager = null;
 
     [SerializeField]
     private ChildCanvasController _childCanvas = null;
@@ -65,13 +64,13 @@ public class Child : MonoBehaviour
         _navMeshAgent.SetDestination(startPos);
         destination = DestinationType.START;
         m_currentIncident = null;
-        endMeal();
+        EndMeal();
     }
 
     // Initialize for the set player
-    public void InitForPlayer(int player)
+    public void InitForPlayer(PlayerManager player)
     {
-        playerNumber = player;
+        _playerManager = player;
     }
 
     public void Awake()
@@ -127,7 +126,7 @@ public class Child : MonoBehaviour
                 // If the gauge is filled, the kid has finished to eat
                 if (m_timer >= m_currentVegetable.timeToEat)
                 {
-                    endMeal();
+                    EndMeal();
                 }
                 // If the incident trigger delay is reached
                 else if (m_timer != 0 && ((m_timer + timeToIncidentModifier) % (m_currentVegetable.timeToIncident + timeToIncidentModifier) == 0))
@@ -149,6 +148,9 @@ public class Child : MonoBehaviour
             {
                 case DestinationType.START:
                     gameObject.SetActive(false);
+                    break;
+
+                case DestinationType.CHAIR:
                     break;
             }
 
@@ -173,20 +175,24 @@ public class Child : MonoBehaviour
         return m_currentIncident == null;
     }
 
-    private void endMeal()
+    private void EndMeal()
     {
-        m_isEating = false;
-        m_currentVegetable = null;
-        _childCanvas.EnableTimer(false);
-        m_Slider.value = 0;
-        m_timer = 0;
+        if (m_currentVegetable != null)
+        {
+            _playerManager.UpdateScore(m_currentVegetable.points, true);
+
+            m_isEating          = false;
+            m_currentVegetable  = null;
+            m_Slider.value      = 0;
+            m_timer             = 0;
+            _childCanvas.EnableTimer(false);
+        }
     }
 
     // Solve an incident with a kid
     // If he has vegetable to eat, he starts to eat again
     public bool SolveIncident(uint responseId)
     {
-
         ResponseConfig response = GameManager.instance.responseIdToConfig[responseId];
 
         Debug.Log("Solve incident with: " + response.name);
@@ -205,6 +211,7 @@ public class Child : MonoBehaviour
                 if(m_currentVegetable.timeToIncident - response.time <= 0)
                 {
                     StartIncident();
+                    _playerManager.UpdateScore(response.points, false);
                     return false;
                 }
 
@@ -212,7 +219,7 @@ public class Child : MonoBehaviour
             {
                 timeToIncidentModifier = response.time;
                 Debug.Log("bonus " + response.time);
-
+                _playerManager.UpdateScore(response.points, false);
                 return false;
             }
 
@@ -228,6 +235,7 @@ public class Child : MonoBehaviour
             m_Slider_Foreground.color = Color.green;
         }
 
+        _playerManager.UpdateScore(response.points, true);
         return true;
     }
 
