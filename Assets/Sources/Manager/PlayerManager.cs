@@ -26,6 +26,7 @@ namespace La.Cantina.Manager
                 OnGameInitialized(GameManager.instance, null);
 
             GameManager.instance.TimerUpdated += OnTimerUpdated;
+            GameManager.instance.TimerEnded += OnTimerEnded;
         }
 
         private void OnGameInitialized(object sender, EventArgs eventArgs)
@@ -61,13 +62,22 @@ namespace La.Cantina.Manager
             AddChild();
         }
 
-        private void OnTimerUpdated(object sender, int elapsedtime)
+        private void OnTimerUpdated(object sender, int elapsedTime)
         {
-            if (!_fullSpawned && elapsedtime > _fullSpawnDelay)
+            if (!_fullSpawned && elapsedTime > _fullSpawnDelay)
             {
                 AddChild(GameManager.instance.currentLevelConfig.children_per_player - 1);
                 _fullSpawned = true;
             }
+
+            //debug
+            if (elapsedTime == 20)
+                _spawner.ReturnAllToStart();
+        }
+
+        private void OnTimerEnded(object sender, int elapsedTime)
+        {
+            _spawner.ReturnAllToStart();
         }
 
         public void AddChild(int number = 1)
