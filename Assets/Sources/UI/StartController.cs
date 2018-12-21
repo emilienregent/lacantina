@@ -12,7 +12,7 @@ namespace La.Cantina.UI
     public class StartController : MonoBehaviour
     {
         private const float TIME_TO_FADE_OUT = 2;
-        private const int TIME_BEFORE_START = 3;
+        private const int TIME_BEFORE_START = 6;
         private float _elapsedTime = 0;
         private int _timerCountDown = TIME_BEFORE_START;
         private int _playersCount = 0;

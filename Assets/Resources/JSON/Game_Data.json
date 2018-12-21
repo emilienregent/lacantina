@@ -209,7 +209,7 @@
       "battle": 1,
       "battle_name": "missing_text",
       "time_sec": 60,
-      "children_per_player": 3,
+      "children_per_player": 1,
       "tables_per_player": 1,
       "max_amount_players": 4
     },
@@ -219,7 +219,7 @@
       "battle": 2,
       "battle_name": "missing_text",
       "time_sec": 60,
-      "children_per_player": 4,
+      "children_per_player": 3,
       "tables_per_player": 1,
       "max_amount_players": 4
     },
@@ -229,7 +229,7 @@
       "battle": 3,
       "battle_name": "missing_text",
       "time_sec": 60,
-      "children_per_player": 5,
+      "children_per_player": 4,
       "tables_per_player": 1,
       "max_amount_players": 4
     },

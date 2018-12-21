@@ -53,7 +53,7 @@ namespace La.Cantina.UI
 
             for (int i = 0; i < _settings.numPlayers; ++i)
             {
-                if (Input.GetButtonDown("Action1_P" + (i + 1)))
+                if (Input.GetButtonDown("Action2_P" + (i + 1)))
                 {
                     SceneManager.LoadScene((int)SceneEnum.START);
                 }
