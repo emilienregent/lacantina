@@ -176,7 +176,10 @@ public class Child : MonoBehaviour
             switch (destination)
             {
                 case DestinationType.START:
-                    gameObject.SetActive(false);
+                    if (_navMeshAgent.hasPath == true)
+                    {
+                        gameObject.SetActive(false);
+                    }
                     break;
 
                 case DestinationType.CHAIR:

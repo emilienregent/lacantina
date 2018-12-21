@@ -37,7 +37,6 @@ namespace La.Cantina.Manager
                 OnGameInitialized(GameManager.instance, null);
 
             GameManager.instance.TimerUpdated += OnTimerUpdated;
-            GameManager.instance.TimerEnded += OnTimerEnded;
         }
 
         private void OnGameInitialized(object sender, EventArgs eventArgs)
@@ -83,16 +82,15 @@ namespace La.Cantina.Manager
                 _fullSpawned = true;
             }
 
+            if (elapsedTime > GameManager.instance.currentLevelConfig.time && _playerNumber <= GameManager.instance.playerCount)
+            {
+                _spawner.ReturnAllToStart();
+            }
+
 #if DEBUG_LEAVE
             if (elapsedTime == 20)
                 _spawner.ReturnAllToStart();
 #endif
-        }
-
-        private void OnTimerEnded(object sender, int elapsedTime)
-        {
-            if (_playerNumber <= GameManager.instance.playerCount)
-                _spawner.ReturnAllToStart();
         }
 
         public void AddChild(int number = 1)

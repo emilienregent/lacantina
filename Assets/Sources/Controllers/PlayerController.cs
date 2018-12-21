@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
+    // Check les boutons appuyés (1=A, 2=B, 3=X, 4=Y)
     private bool IsPressedAction(int button)
     {
 #if ENABLE_KEYBOARD
@@ -141,11 +141,11 @@ public class PlayerController : MonoBehaviour
         }
         else if(IsPressedAction(3) == true)
         {
-            ManageIncident(RESPONSE_SHOUT);
+            ManageIncident(RESPONSE_CUDDLE);
         }
         else if (IsPressedAction(4) == true)
         {
-            ManageIncident(RESPONSE_CUDDLE);
+            ManageIncident(RESPONSE_SHOUT);
         }
     }
 

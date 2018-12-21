@@ -42,8 +42,8 @@ namespace La.Cantina.UI
         private void OnTimerUpdated(object sender, int elapsedTime)
         {
             int time        = GameManager.instance.currentLevelConfig.time - elapsedTime;
-            int minutes     = Mathf.RoundToInt(time / 60);
-            int secondes    = time % 60;
+            int minutes     = Mathf.Max(0, Mathf.RoundToInt(time / 60));
+            int secondes    = Mathf.Max(0, time % 60);
 
             _timerText.text = string.Format(TIMER_FORMAT, minutes.ToString("00"), secondes.ToString("00"));
 

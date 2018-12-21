@@ -24,6 +24,7 @@ namespace La.Cantina.Manager
 
         public static int FIRST_ROUND   = 0;
         public static int LAST_ROUND    = 3;
+        public static int TIME_BEFORE_LEAVE = 5;
 
         public event EventHandler Initialized;
         public event EventHandler<int> TimerUpdated;
@@ -63,7 +64,7 @@ namespace La.Cantina.Manager
         {
             _elapsedTime++;
 
-            if (_elapsedTime <= _currentLevelConfig.time)
+            if (_elapsedTime <= _currentLevelConfig.time + GameManager.TIME_BEFORE_LEAVE)
             {
                 TimerUpdated?.Invoke(this, _elapsedTime);
             }
