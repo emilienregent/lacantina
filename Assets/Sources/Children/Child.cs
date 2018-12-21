@@ -24,7 +24,9 @@ public class Child : MonoBehaviour
     public Seating allowedSeating = null;
 
     private PlayerManager _playerManager = null;
-    private CapsuleCollider _capsuleCollider = null;
+
+    public CapsuleCollider _bodyCollider = null;
+    public BoxCollider _tailCollider = null;
 
     [SerializeField]
     private ChildCanvasController _childCanvas = null;
@@ -55,7 +57,7 @@ public class Child : MonoBehaviour
     // Claim a seat in the assigned set and move to its position.
     public void GoSit()
     {
-        _capsuleCollider.isTrigger = true;
+        _bodyCollider.enabled = false;
         if (currentSeat == null) 
             currentSeat = allowedSeating.GetEmptySeat();
 
@@ -90,7 +92,6 @@ public class Child : MonoBehaviour
         m_Slider.value = 0f;
         m_Slider_Foreground.color = _playerManager.playerColor;
         
-        _capsuleCollider = GetComponentInChildren<CapsuleCollider>();
         if (GameManager.instance.isReady == false)
         {
             GameManager.instance.Initialized += OnGameInitialized;
@@ -181,12 +182,12 @@ public class Child : MonoBehaviour
                 case DestinationType.CHAIR:
                     Debug.Log("est arrivé à table");
                     m_isOutOfTable = false;
-                    _capsuleCollider.isTrigger = true;
+                    _tailCollider.enabled = true;
                     _lookAtWhenSitting.y = transform.position.y;
                     break;
 
                 case DestinationType.RANDOM:
-                    _capsuleCollider.isTrigger = false;
+                    _bodyCollider.enabled = true;
                     break;
             }
 
@@ -355,6 +356,7 @@ public class Child : MonoBehaviour
         _navMeshAgent.SetDestination(randomPoint);
         m_waiting_timer = 0;
 
+        _tailCollider.enabled = false;
         destination = DestinationType.RANDOM;
     }
 
