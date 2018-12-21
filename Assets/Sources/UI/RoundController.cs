@@ -18,6 +18,14 @@ public class RoundController : MonoBehaviour
 
     [SerializeField] private Sprite[] _titles = new Sprite[3];
 
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.Play();
+    }
+
     private void Start()
     {
         UnityEngine.Debug.Log("Load round " + _settings.numRounds);
@@ -30,6 +38,9 @@ public class RoundController : MonoBehaviour
 
         _rootNormal.SetActive(true);
         _rootGo.SetActive(false);
+
+        
+        
     }
 
     private void Update()
@@ -43,6 +54,8 @@ public class RoundController : MonoBehaviour
 
             _countdown.enabled = true;
             _countdown.text = countdown.ToString();
+
+            _audioSource.Play();
 
             if (countdown == 0)
             {
