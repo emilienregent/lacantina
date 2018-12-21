@@ -51,7 +51,16 @@ namespace La.Cantina.Controller
 
         private void OnTimerEnded(object sender, int elapsedTime)
         {
-            SceneManager.LoadScene((int)SceneEnum.END);
+            if (_settings.numRounds < GameManager.LAST_ROUND)
+            {
+                UnityEngine.Debug.Log("Load scene " + SceneEnum.ROUND.ToString());
+                SceneManager.LoadScene((int)SceneEnum.ROUND);
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Load scene " + SceneEnum.END.ToString());
+                SceneManager.LoadScene((int)SceneEnum.END);
+            }
         }
 
         private void OnDestroy()

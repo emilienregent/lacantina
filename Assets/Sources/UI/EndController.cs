@@ -1,5 +1,6 @@
 ﻿using La.Cantina.Data;
 using La.Cantina.Enums;
+using La.Cantina.Manager;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,6 +19,8 @@ namespace La.Cantina.UI
 
         private void Start()
         {
+            _settings.numRounds = GameManager.FIRST_ROUND;
+
             Dictionary<int, int> playerIndexToScore = new Dictionary<int, int>();
 
             // TODO: Call SetPlayer method for each player and disable others

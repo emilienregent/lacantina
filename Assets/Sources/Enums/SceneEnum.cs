@@ -4,6 +4,7 @@
     {
         START   = 0,
         GAME    = 1,
-        END     = 2
+        ROUND   = 2,
+        END     = 3
     }
 }
