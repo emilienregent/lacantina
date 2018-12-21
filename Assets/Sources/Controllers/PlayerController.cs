@@ -130,36 +130,22 @@ public class PlayerController : MonoBehaviour
             {
                 GiveFood();
             }
-            else
+            else if (_childInRange.isOutOfTable == true && _childInRange.destination == Child.DestinationType.NONE)
             {
-                if (_childInRange.isOutOfTable == true && _childInRange.destination == Child.DestinationType.NONE)
-                {
-                    _childInRange.GoSit();
-                }
-                else
-                {
-                    ManageIncident(RESPONSE_FORCE);
-                }
+                _childInRange.GoSit();
             }
         }
-        else if(IsPressedAction(2) == true)
+        else if(IsPressedAction(2) == true && _vegetableCarried != null)
         {
-            if (_vegetableCarried != null)
-            {
-                ThrowFood();
-            }
-            else
-            {
-                ManageIncident(RESPONSE_SHOUT);
-            }
+            ThrowFood();
         }
         else if(IsPressedAction(3) == true)
         {
-            ManageIncident(RESPONSE_CUDDLE);
+            ManageIncident(RESPONSE_SHOUT);
         }
         else if (IsPressedAction(4) == true)
         {
-            ManageIncident(RESPONSE_CLEAN);
+            ManageIncident(RESPONSE_CUDDLE);
         }
     }
 
