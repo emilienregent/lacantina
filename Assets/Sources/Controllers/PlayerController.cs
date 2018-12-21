@@ -95,8 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Children")
         {
-            // TODO : Display feedback when child is selectionnable
-            /*other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Empty");*/
+            other.GetComponentInParent<Child>().GetComponentInChildren<Renderer>().material = Resources.Load<Material>("Materials/dark");
 
             _childInRange = null;
         }
@@ -104,12 +103,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Children" && other.transform.parent.gameObject.tag == "SpawnerPlayer" + _joystickNumber.ToString())
+        if (other.tag == "Children" && other.transform.parent.parent.gameObject.tag == "SpawnerPlayer" + _joystickNumber.ToString())
         {
-            // TODO : Display feedback when child is selectionnable
-            /*other.GetComponent<Renderer>().material = Resources.Load<Material>("Materials/Cyan");*/
 
-            _childInRange = other.GetComponent<Child>();
+            _childInRange = other.GetComponentInParent<Child>();
+            _childInRange.GetComponentInChildren<Renderer>().material = _body.material;
 
             ActionChild();
 

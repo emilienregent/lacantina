@@ -89,9 +89,8 @@ public class Child : MonoBehaviour
     {
         m_Slider.value = 0f;
         m_Slider_Foreground.color = _playerManager.playerColor;
-
-        _capsuleCollider = GetComponent<CapsuleCollider>();
-
+        
+        _capsuleCollider = GetComponentInChildren<CapsuleCollider>();
         if (GameManager.instance.isReady == false)
         {
             GameManager.instance.Initialized += OnGameInitialized;
