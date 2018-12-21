@@ -13,6 +13,9 @@ public class RoundController : MonoBehaviour
     [SerializeField] private Image _title = null;
     [SerializeField] private Text _countdown = null;
 
+    [SerializeField] private GameObject _rootNormal = null;
+    [SerializeField] private GameObject _rootGo = null;
+
     [SerializeField] private Sprite[] _titles = new Sprite[3];
 
     private void Start()
@@ -24,6 +27,9 @@ public class RoundController : MonoBehaviour
         _settings.numRounds++;
 
         _countdown.enabled = false;
+
+        _rootNormal.SetActive(true);
+        _rootGo.SetActive(false);
     }
 
     private void Update()
@@ -31,16 +37,22 @@ public class RoundController : MonoBehaviour
         // Each second
         _elapsedTime += Time.deltaTime;
 
-        if (countdown > 0 && _elapsedTime >= 1f)
+        if (countdown >= 0 && _elapsedTime >= 1f)
         {
             _elapsedTime = _elapsedTime % 1f;
 
             _countdown.enabled = true;
             _countdown.text = countdown.ToString();
 
-            countdown--;
+            if (countdown == 0)
+            {
+                _rootNormal.SetActive(false);
+                _rootGo.SetActive(true);
+            }
 
-            if (countdown <= 0)
+            countdown--;
+            
+            if (countdown < 0)
             {
                 OnTimerEnded();
             }
