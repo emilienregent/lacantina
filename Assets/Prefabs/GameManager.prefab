@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNumber: 3
-  _playerMaterial: {fileID: 2100000, guid: d1a47f21152c418419800d931c87f297, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: 374a8fc6b0bddad4f8f5a512fa3fa2bc, type: 2}
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
-  _spawnPosition: {x: 0, y: 1, z: -4.5}
+  _spawnPosition: {x: 4, y: 1, z: -0.5}
   _fullSpawnDelay: 15
   _score: {fileID: 11400000, guid: c1d48022d14d0694c8acd9c061b228b4, type: 2}
 --- !u!114 &452711257087177461
@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNumber: 4
-  _playerMaterial: {fileID: 2100000, guid: 374a8fc6b0bddad4f8f5a512fa3fa2bc, type: 2}
+  _playerMaterial: {fileID: 2100000, guid: d1a47f21152c418419800d931c87f297, type: 2}
   _playerPrefab: {fileID: 292467410242668049, guid: e3853d169a7ec714c9b1e38915950ca3,
     type: 3}
-  _spawnPosition: {x: 4, y: 1, z: -0.5}
+  _spawnPosition: {x: 0, y: 1, z: -4.5}
   _fullSpawnDelay: 15
   _score: {fileID: 11400000, guid: 3411015ed631e9749a24ca1cc9003cfa, type: 2}
