@@ -1,5 +1,6 @@
 ﻿using La.Cantina.Data;
 using La.Cantina.Enums;
+using La.Cantina.Manager;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,16 +17,11 @@ namespace La.Cantina.UI
         [SerializeField] private Color[]                    _colors     = new Color[4];
         [SerializeField] private SettingsScriptableObject   _settings   = null;
 
-        private const float MUSIC_TARGET_VOLUME = 0.5f;
-        public AudioSource m_AudioSourceMusic;
-        public AudioSource m_AudioSourceSFX;
-        private float _clipSfxLength;
-
         private void Start()
         {
-            Dictionary<int, int> playerIndexToScore = new Dictionary<int, int>();
+            _settings.numRounds = GameManager.FIRST_ROUND;
 
-            _clipSfxLength = m_AudioSourceSFX.clip.length;
+            Dictionary<int, int> playerIndexToScore = new Dictionary<int, int>();
 
             // TODO: Call SetPlayer method for each player and disable others
             for (int i = 0; i < _settings.numPlayers; ++i)
@@ -62,17 +58,7 @@ namespace La.Cantina.UI
                     SceneManager.LoadScene((int)SceneEnum.START);
                 }
             }
-
-            FadeInMusic();
-
-        }
-
-        public void FadeInMusic()
-        {
-            if (m_AudioSourceMusic.volume < MUSIC_TARGET_VOLUME)
-            {
-                m_AudioSourceMusic.volume = m_AudioSourceMusic.volume + (Time.deltaTime / _clipSfxLength);
-            }
+            
         }
     }
 }

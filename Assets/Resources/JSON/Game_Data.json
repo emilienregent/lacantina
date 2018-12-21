@@ -208,7 +208,7 @@
       "Level_id_CRC": 2386292924,
       "battle": 1,
       "battle_name": "missing_text",
-      "time_sec": 90,
+      "time_sec": 60,
       "children_per_player": 3,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -218,7 +218,7 @@
       "Level_id_CRC": 2769724287,
       "battle": 2,
       "battle_name": "missing_text",
-      "time_sec": 90,
+      "time_sec": 60,
       "children_per_player": 4,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -228,7 +228,7 @@
       "Level_id_CRC": 3155006014,
       "battle": 3,
       "battle_name": "missing_text",
-      "time_sec": 90,
+      "time_sec": 60,
       "children_per_player": 5,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -238,7 +238,7 @@
       "Level_id_CRC": 4081845497,
       "battle": 4,
       "battle_name": "missing_text",
-      "time_sec": 90,
+      "time_sec": 60,
       "children_per_player": 6,
       "tables_per_player": 1,
       "max_amount_players": 4
@@ -446,6 +446,6 @@
   "CONVERSION_INFO": {
     "release_version": "1.6.2",
     "release_date": "2018-09-27",
-    "conversion_date": "2018-12-19T18:43:51.4616611Z"
+    "conversion_date": "2018-12-21T09:26:05.7607943Z"
   }
 }

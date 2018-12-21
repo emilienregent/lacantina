@@ -2,7 +2,6 @@
 using La.Cantina.Types;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace La.Cantina.Manager
 {
@@ -22,6 +21,10 @@ namespace La.Cantina.Manager
                 return _instance;
             }
         }
+
+        public static int FIRST_ROUND   = 0;
+        public static int LAST_ROUND    = 3;
+        public static int TIME_BEFORE_LEAVE = 5;
 
         public event EventHandler Initialized;
         public event EventHandler<int> TimerUpdated;
@@ -47,7 +50,7 @@ namespace La.Cantina.Manager
 
         public void SetReady(SettingsScriptableObject settings)
         {
-            uint levelIdSelected = levelIds[0];
+            uint levelIdSelected = levelIds[settings.numRounds - 1];
 
             _settings = settings;
             _currentLevelConfig = levelIdToConfig[levelIdSelected];
@@ -61,7 +64,7 @@ namespace La.Cantina.Manager
         {
             _elapsedTime++;
 
-            if (_elapsedTime <= _currentLevelConfig.time)
+            if (_elapsedTime <= _currentLevelConfig.time + GameManager.TIME_BEFORE_LEAVE)
             {
                 TimerUpdated?.Invoke(this, _elapsedTime);
             }

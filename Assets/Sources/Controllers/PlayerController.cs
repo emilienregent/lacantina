@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Check les boutons appuyés (1=A, 2=B, 3=Y, 4=X)
+    // Check les boutons appuyés (1=A, 2=B, 3=X, 4=Y)
     private bool IsPressedAction(int button)
     {
 #if ENABLE_KEYBOARD
@@ -128,28 +128,14 @@ public class PlayerController : MonoBehaviour
             {
                 GiveFood();
             }
-            else
+            else if (_childInRange.isOutOfTable == true && _childInRange.destination == Child.DestinationType.NONE)
             {
-                if (_childInRange.isOutOfTable == true && _childInRange.destination == Child.DestinationType.NONE)
-                {
-                    _childInRange.GoSit();
-                }
-                else
-                {
-                    ManageIncident(RESPONSE_FORCE);
-                }
+                _childInRange.GoSit();
             }
         }
-        else if(IsPressedAction(2) == true)
+        else if(IsPressedAction(2) == true && _vegetableCarried != null)
         {
-            if (_vegetableCarried != null)
-            {
-                ThrowFood();
-            }
-            else
-            {
-                ManageIncident(RESPONSE_SHOUT);
-            }
+            ThrowFood();
         }
         else if(IsPressedAction(3) == true)
         {
@@ -157,7 +143,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (IsPressedAction(4) == true)
         {
-            ManageIncident(RESPONSE_CLEAN);
+            ManageIncident(RESPONSE_SHOUT);
         }
     }
 

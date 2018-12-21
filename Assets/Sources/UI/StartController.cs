@@ -1,5 +1,6 @@
 ﻿using La.Cantina.Data;
 using La.Cantina.Enums;
+using La.Cantina.Manager;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,8 @@ namespace La.Cantina.UI
 
         private void Start()
         {
+            settings.numRounds = GameManager.FIRST_ROUND;
+
             HideHowToPlayScreen();
             _audioSource = GetComponent<AudioSource>();
 
@@ -65,12 +68,12 @@ namespace La.Cantina.UI
         {
             if (_playersReady == _playersCount)
             {
-
                 _elapsedTime += Time.deltaTime;
 
                 // Each second
                 if (_elapsedTime >= 1f)
                 {
+
                     _elapsedTime = _elapsedTime % 1f;
                     // Wait one second before showing the How To Play screen
                     if (_waitBeforeHowToPlay == true)
@@ -78,10 +81,11 @@ namespace La.Cantina.UI
                         _waitBeforeHowToPlay = false;
                         m_TimerText.text = _timerCountDown.ToString();
                         ShowHowToPlayScreen();
-                    
+
                     // After that we start the countdown
-                    } else
-                    {                        
+                    }
+                    else
+                    {
                         _timerCountDown--;
 
                         if (_timerCountDown > 0)
@@ -95,9 +99,8 @@ namespace La.Cantina.UI
                         else
                         {
                             settings.numPlayers = _playersReady;
-                            SceneManager.LoadScene((int)SceneEnum.GAME);
+                            SceneManager.LoadScene((int)SceneEnum.ROUND);
                         }
-
                     }
                 }
 
