@@ -14,7 +14,17 @@ namespace La.Cantina.UI
         private bool m_IsInitialized = false;
         private bool m_IsReady = false;
 
+        public AudioClip m_ConfirmFeedbackSFX;
+        public AudioClip m_CancelFeedbackSFX;
+
+        private AudioSource _audioSource;
+
         private StartController m_StartController;
+
+        private void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
         // Update is called once per frame
         private void Update()
@@ -27,6 +37,13 @@ namespace La.Cantina.UI
                     GetComponentInChildren<Image>().color = m_PlayerColor;
 
                     m_StartController.CallBackPlayerReady(m_PlayerID);
+
+                    // Play confirm feedback SFX
+                    if(_audioSource.isPlaying == false)
+                    {
+                        _audioSource.clip = m_ConfirmFeedbackSFX;
+                        _audioSource.Play();
+                    }
                 }
 
                 if (IsPressedAction(2) && m_IsReady == true)
@@ -35,6 +52,13 @@ namespace La.Cantina.UI
                     GetComponentInChildren<Image>().color = m_DefaultColor;
 
                     m_StartController.CallBackPlayerUnready(m_PlayerID);
+
+                    // Play cancel feedback SFX
+                    if (_audioSource.isPlaying == false)
+                    {
+                        _audioSource.clip = m_CancelFeedbackSFX;
+                        _audioSource.Play();
+                    }
                 }
             }
         }
