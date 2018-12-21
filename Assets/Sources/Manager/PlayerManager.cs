@@ -55,8 +55,9 @@ namespace La.Cantina.Manager
             _seating = seatings[0].GetComponent<Seating>();
 
             // Spawn Player and a child
-            if (_playerNumber <= GameManager.instance.playerCount)
-            {
+            //if (_playerNumber <= GameManager.instance.playerCount)
+                if (_playerNumber <= 4)
+                {
                 _currentPlayer = GameObject.Instantiate(_playerPrefab, _spawnPosition, Quaternion.identity);
                 _currentPlayer.name = "P" + _playerNumber;
 
