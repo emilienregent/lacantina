@@ -31,6 +31,8 @@ namespace La.Cantina.UI
 
         private AudioSource _audioSource;
 
+        private bool _waitBeforeHowToPlay = false;
+
         private void Start()
         {
             settings.numRounds = GameManager.FIRST_ROUND;
@@ -66,25 +68,39 @@ namespace La.Cantina.UI
         {
             if (_playersReady == _playersCount)
             {
-                // Each second
                 _elapsedTime += Time.deltaTime;
 
+                // Each second
                 if (_elapsedTime >= 1f)
                 {
 
                     _elapsedTime = _elapsedTime % 1f;
-                    _timerCountDown--;
-
-                    if (_timerCountDown > 0)
+                    // Wait one second before showing the How To Play screen
+                    if (_waitBeforeHowToPlay == true)
                     {
+                        _waitBeforeHowToPlay = false;
                         m_TimerText.text = _timerCountDown.ToString();
-                    } else if(_timerCountDown == 0)
+                        ShowHowToPlayScreen();
+
+                    // After that we start the countdown
+                    }
+                    else
                     {
-                        m_TimerText.text = _startTimerText;
-                    } else
-                    {
-                        settings.numPlayers = _playersReady;
-                        SceneManager.LoadScene((int)SceneEnum.ROUND);
+                        _timerCountDown--;
+
+                        if (_timerCountDown > 0)
+                        {
+                            m_TimerText.text = _timerCountDown.ToString();
+                        }
+                        else if (_timerCountDown == 0)
+                        {
+                            m_TimerText.text = _startTimerText;
+                        }
+                        else
+                        {
+                            settings.numPlayers = _playersReady;
+                            SceneManager.LoadScene((int)SceneEnum.ROUND);
+                        }
                     }
                 }
 
@@ -106,8 +122,7 @@ namespace La.Cantina.UI
             _playersReady++;
             if(_playersReady == _playersCount)
             {
-                m_TimerText.text = _timerCountDown.ToString();
-                ShowHowToPlayScreen();
+                _waitBeforeHowToPlay = true;
             }
         }
 
